@@ -1,12 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './components/pages/Home';
+import Nav from './components/routes/Nav';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <Nav />
     </div>
   );
 }
