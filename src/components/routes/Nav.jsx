@@ -1,14 +1,26 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
-import LoginForm from '../forms/LoginForm';
-import IndexDoctors from '../pages/IndexDoctors';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/login" element={<LoginForm />} />
-    <Route path="/doctors" element={<IndexDoctors />} />
-  </Routes>
+  <nav>
+    <img />
+    <ul>
+      <li>
+        <NavLink to="/">DOCTORS</NavLink>
+      </li>
+      <li>
+        <NavLink to="#">RESERVE A DOCTOR</NavLink>
+      </li>
+      <li>
+        <NavLink to="#">MY RESERVATIONS</NavLink>
+      </li>
+      <li>
+        <NavLink to="#">ADD A DOCTOR</NavLink>
+      </li>
+      <li>
+        <NavLink to="#">DELETE A DOCTOR</NavLink>
+      </li>
+    </ul>
+  </nav>
 );
 
 export default Nav;

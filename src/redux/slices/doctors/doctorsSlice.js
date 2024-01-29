@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const fetchDoctors = createAsyncThunk(
   'doctors/fetchDoctors', async () => {
@@ -11,7 +11,7 @@ export const fetchDoctors = createAsyncThunk(
       name: doctor.name,
       description: doctor.description,
       imageUrl: doctor.image_url,
-      age: doctor.age
+      age: doctor.age,
     }));
   },
 );
@@ -22,7 +22,7 @@ const doctorsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchDoctors.fulfilled, (state, action) => {
-      state.list = action.payload
+      state.list = action.payload;
     });
   },
 });

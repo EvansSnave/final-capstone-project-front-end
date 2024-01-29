@@ -12,7 +12,7 @@ const LoginForm = () => {
         <label>Email</label>
         <input type="email" name="email" {...register('email')} />
       </div>
-    
+
       <div className="form-control">
         <label>Password</label>
         <input type="password" name="password" {...register('password')} />
@@ -24,6 +24,6 @@ const LoginForm = () => {
       </div>
     </form>
   );
-}
+};
 
 export default LoginForm;

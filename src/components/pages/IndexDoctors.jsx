@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDoctors } from "../../redux/slices/doctors/doctorsSlice";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchDoctors } from '../../redux/slices/doctors/doctorsSlice';
 
 const IndexDoctors = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const IndexDoctors = () => {
         </li>
       ))}
     </ul>
-  )
+  );
 };
 
 export default IndexDoctors;
