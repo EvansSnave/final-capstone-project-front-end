@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import registerUser from './actions/registerUsers';
 import loginUsers from './actions/loginUsers';
 import logoutUsers from './actions/logoutUsers';
+import currentUser from './actions/currentUser';
 
 const initialState = {
   status: 'idle',
@@ -29,6 +30,9 @@ const usersSlice = createSlice({
         state.token = action.payload.auth;
       })
       .addCase(logoutUsers.fulfilled, (state, action) => {
+        state.status = action.payload.data.status;
+      })
+      .addCase(currentUser.fulfilled, (state, action) => {
         state.status = action.payload.data.status;
       });
   },
