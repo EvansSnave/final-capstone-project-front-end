@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const fetchReservations = createAsyncThunk(
   'reservationsindex/fetchreservations', async () => {
@@ -8,7 +8,7 @@ export const fetchReservations = createAsyncThunk(
       id: reservation.id,
       userId: reservation.user_id,
       doctorId: reservation.doctor_id,
-      scheduleDate: reservation.schedule_date
+      scheduleDate: reservation.schedule_date,
     }));
   },
 );
