@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
 import loginUsers from '../../redux/slices/users/actions/loginUsers';
 
 const LoginForm = () => {
@@ -16,7 +14,7 @@ const LoginForm = () => {
   useEffect(() => {
     if (statusCode === 200) {
       setIsLoggedIn(true);
-    };
+    }
   }, [statusCode]);
 
   const onSubmit = (data) => {
@@ -25,31 +23,31 @@ const LoginForm = () => {
 
   return (
     <>
-    {isLoggedIn ? 
-      <Navigate to="/" />
-      :
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-control">
-          <label>Name</label>
-          <input type="text" name="name" {...register('name')} />
-        </div>
+      {isLoggedIn ? 
+        <Navigate to="/" />
+        : (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control">
+              <label>Name</label>
+              <input type="text" name="name" {...register('name')} />
+            </div>
 
-        <div className="form-control">
-          <label>Email</label>
-          <input type="email" name="email" {...register('email')} />
-        </div>
+            <div className="form-control">
+              <label>Email</label>
+              <input type="email" name="email" {...register('email')} />
+            </div>
 
-        <div className="form-control">
-          <label>Password</label>
-          <input type="password" name="password" {...register('password')} />
-        </div>
+            <div className="form-control">
+              <label>Password</label>
+              <input type="password" name="password" {...register('password')} />
+            </div>
 
-        <div className="form-control">
-          <label>Submit</label>
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    }
+            <div className="form-control">
+              <label>Submit</label>
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        )}
     </>
   );
 };
