@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import registerUser from './actions/registerUsers';
 import loginUsers from './actions/loginUsers';
+import logoutUsers from './actions/logoutUsers';
 
 const initialState = {
   status: 'idle',
   error: null,
   info: {},
+  token: null
 };
 
 const usersSlice = createSlice({
@@ -24,7 +26,10 @@ const usersSlice = createSlice({
       .addCase(loginUsers.fulfilled, (state, action) => {
         state.status = action.payload.data.status;
         state.info = action.payload.data.data;
-        // payload.headers.authorization
+        state.token = action.payload.auth;
+      })
+      .addCase(logoutUsers.fulfilled, (state, action) => {
+        state.status = action.payload.data.status;
       });
   },
 });
