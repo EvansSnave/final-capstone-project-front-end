@@ -11,7 +11,6 @@ const loginUsers = createAsyncThunk('users/loginUsers',
       },
     };
     const response = await axios.post('http://localhost:4000/login', body);
-    
     return {
       data: response.data,
       status: response.status,

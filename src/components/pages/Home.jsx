@@ -6,7 +6,7 @@ import LoginForm from '../forms/LoginForm';
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const statusCode = useSelector((state) => state.users.status.code);
+  const statusCode = useSelector((state) => state.users.status.code); 
 
   useEffect(() => {
     if (statusCode === 200) {
