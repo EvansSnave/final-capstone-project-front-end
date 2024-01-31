@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk('users/loginUser', async (data) => {
 
 export const logoutUser = createAsyncThunk('users/logoutUsers', async () => {
   const token = localStorage.getItem('tokenAuth');
-  const response = await axios.delete('http://localhost/logout', {
+  const response = await axios.delete('http://localhost:4000/logout', {
     headers: {
       Authorization: token,
     },

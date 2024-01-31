@@ -1,8 +1,10 @@
+import Nav from "./Nav";
+
 const Home = () => {
   return (
-    <div>
-      home
-    </div>
+    <main>
+      <Nav />
+    </main>
   )
 };
 
