@@ -1,4 +1,4 @@
-import Authorization from "./Authorization";
+import Authorization from './Authorization';
 
 function App() {
   return (

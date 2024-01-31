@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../../redux/users/usersSlice';
 
 const Nav = () => {

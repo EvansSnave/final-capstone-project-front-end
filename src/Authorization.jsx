@@ -15,11 +15,9 @@ const Authorization = () => {
 
   return (
     <>
-      {isLoggedIn ? 
-        <Navigate to="/" />
-      :
-        <Navigate to="/login" />
-      }
+      {isLoggedIn
+        ? <Navigate to="/" />
+        : <Navigate to="/login" />}
     </>
   );
 };

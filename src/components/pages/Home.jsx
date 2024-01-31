@@ -1,11 +1,9 @@
-import Nav from "./Nav";
+import Nav from './Nav';
 
-const Home = () => {
-  return (
-    <main>
-      <Nav />
-    </main>
-  )
-};
+const Home = () => (
+  <main>
+    <Nav />
+  </main>
+);
 
 export default Home;

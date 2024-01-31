@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios'
+import axios from 'axios';
 
 export const currentUser = createAsyncThunk('users/currentUser', async () => {
   const token = localStorage.getItem('tokenAuth');
@@ -58,12 +58,12 @@ const usersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(currentUser.fulfilled, (state, action) => {
-      state.info = action.payload;
-    })
-    .addCase(loginUser.fulfilled, (state, action) => {
-      state.info = action.payload;
-    });
+      .addCase(currentUser.fulfilled, (state, action) => {
+        state.info = action.payload;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.info = action.payload;
+      });
   },
 });
 
