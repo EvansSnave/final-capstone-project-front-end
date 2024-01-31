@@ -1,9 +1,9 @@
-import RoutesApp from "./components/routes/RoutesApp";
+import Authorization from "./Authorization";
 
 function App() {
   return (
     <div className="App">
-      <RoutesApp />
+      <Authorization />
     </div>
   );
 }
