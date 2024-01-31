@@ -10,7 +10,7 @@ export const currentUser = createAsyncThunk('users/currentUser', async () => {
   });
   return {
     user: {
-      id: response.id,
+      id: response.data.id,
       authorized: true,
     },
   };
@@ -45,7 +45,7 @@ export const logoutUser = createAsyncThunk('users/logoutUsers', async () => {
   });
   localStorage.removeItem('tokenAuth');
   window.location.reload();
-  return response;
+  return response.data;
 });
 
 const initialState = {
@@ -59,7 +59,7 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(currentUser.fulfilled, (state, action) => {
-        state.info = action.payload;
+        state.info = action.payload.user.authorized;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.info = action.payload;

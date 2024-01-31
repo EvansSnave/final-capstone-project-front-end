@@ -1,6 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 
 const DoctorsList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listOfDoctors());
+  }, []);
+
   const doctors = useSelector((state) => state.doctors.doctorsList);
   return (
     <ul>

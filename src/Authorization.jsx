@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { currentUser } from './redux/users/usersSlice';
 
 const Authorization = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const authorized = useSelector((state) => state.users.info);
+  const [isLoggedIn, setIsLoggedIn] = useState(authorized);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = localStorage.getItem('tokenAuth');
-    if (token) {
+    dispatch(currentUser());
+    if (authorized) {
       setIsLoggedIn(true);
-    } else {
+      } else {
       setIsLoggedIn(false);
     }
-  }, []);
+  }, [authorized]);
 
   return (
     <>
