@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import { currentUser } from './redux/users/usersSlice';
 import Home from './components/pages/Home';
 
