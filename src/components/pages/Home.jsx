@@ -1,6 +1,6 @@
 import Nav from './Nav';
-import LoginForm from '../forms/LoginForm';
 import RoutesApp from '../routes/RoutesApp';
+import Forms from '../forms/Forms';
 
 const Home = ({ loggedIn, id }) => {
   return (
@@ -12,7 +12,7 @@ const Home = ({ loggedIn, id }) => {
           <RoutesApp id={id} />
         </main>
       :
-        <LoginForm />
+        <Forms />
       }
     </>
   );

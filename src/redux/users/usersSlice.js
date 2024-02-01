@@ -18,11 +18,14 @@ export const currentUser = createAsyncThunk('users/currentUser', async () => {
 
 export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
   const body = {
-    name: data.name,
-    email: data.email,
-    password: data.password,
-    passwordConfirmation: data.passwordConfirmation,
+    user: {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      password_confirmation: data.password_confirmation,
+    }
   };
+  console.log(body)
   const response = await axios.post('http://localhost:4000/signup', body);
   return response.data;
 });

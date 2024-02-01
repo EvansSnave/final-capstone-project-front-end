@@ -32,6 +32,7 @@ const LoginForm = () => {
         <label>Submit</label>
         <button type="submit">Login</button>
       </div>
+      <p>Need an account?</p>
     </form>
   );
 };

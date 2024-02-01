@@ -30,13 +30,14 @@ const SignupForm = () => {
 
       <div className="form-control">
         <label>Password confirmation</label>
-        <input type="password" name="passwordConfirmation" {...register('passwordConfirmation')} />
+        <input type="password" name="password_confirmation" {...register('password_confirmation')} />
       </div>
 
       <div className="form-control">
         <label>Submit</label>
         <button type="submit">Sign up</button>
       </div>
+      <p>Do you have an account?</p>
     </form>
   );
 };
