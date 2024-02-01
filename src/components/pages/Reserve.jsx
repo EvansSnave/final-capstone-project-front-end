@@ -1,9 +1,7 @@
-const Reserve = () => {
-  return (
-    <div>
-      reserve
-    </div>
-  )
-};
+const Reserve = () => (
+  <div>
+    reserve
+  </div>
+);
 
 export default Reserve;

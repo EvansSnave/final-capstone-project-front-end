@@ -23,7 +23,7 @@ const DoctorsList = () => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
 export default DoctorsList;

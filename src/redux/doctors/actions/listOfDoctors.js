@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const listOfDoctors = createAsyncThunk('doctors/listOfDoctors', async() => {
+const listOfDoctors = createAsyncThunk('doctors/listOfDoctors', async () => {
   const response = await axios.get('http://localhost:4000/doctors');
   return response.data.map((doctor) => ({
     id: doctor.id,

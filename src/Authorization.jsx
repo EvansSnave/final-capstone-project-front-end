@@ -12,7 +12,7 @@ const Authorization = () => {
     dispatch(currentUser());
     if (authorized) {
       setIsLoggedIn(true);
-      } else {
+    } else {
       setIsLoggedIn(false);
     }
   }, [authorized]);

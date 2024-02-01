@@ -9,7 +9,7 @@ const doctorsSlice = createSlice({
   name: 'doctors',
   initialState,
   reducers: {},
-  extraReducers: (builder)=> {
+  extraReducers: (builder) => {
     builder
       .addCase(listOfDoctors.fulfilled, (state, action) => {
         state.doctorsList = action.payload;
