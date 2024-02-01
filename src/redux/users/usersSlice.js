@@ -50,6 +50,7 @@ export const logoutUser = createAsyncThunk('users/logoutUsers', async () => {
 
 const initialState = {
   info: null,
+  id: null,
 };
 
 const usersSlice = createSlice({
@@ -60,6 +61,7 @@ const usersSlice = createSlice({
     builder
       .addCase(currentUser.fulfilled, (state, action) => {
         state.info = action.payload.user.authorized;
+        state.id = action.payload.user.id;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.info = action.payload;

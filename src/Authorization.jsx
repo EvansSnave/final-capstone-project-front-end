@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 
 const Authorization = () => {
   const authorized = useSelector((state) => state.users.info);
+  const userId = useSelector((state) => state.users.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,10 +13,10 @@ const Authorization = () => {
   }, [dispatch]);
 
   if (authorized) {
-    return <Home loggedIn={true} />
+    return <Home loggedIn={true} id={userId} />
   }
 
-  return <Home loggedIn={false} />;
+  return <Home loggedIn={false} id={null} />;
 };
 
 export default Authorization;
