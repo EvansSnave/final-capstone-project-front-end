@@ -30,7 +30,7 @@ const SignupForm = () => {
 
       <div className="form-control">
         <label>Password confirmation</label>
-        <input type="password" name="password_confirmation" {...register('password_confirmation')} />
+        <input type="password" name="passwordConfirmation" {...register('passwordConfirmation')} />
       </div>
 
       <div className="form-control">

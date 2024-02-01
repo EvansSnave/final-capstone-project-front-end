@@ -17,17 +17,17 @@ export const currentUser = createAsyncThunk('users/currentUser', async () => {
 });
 
 export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
-  const body = {
-    user: {
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      password_confirmation: data.password_confirmation,
-    }
-  };
-  console.log(body)
-  const response = await axios.post('http://localhost:4000/signup', body);
-  return response.data;
+    const body = {
+      user: {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        password_confirmation: data.password_confirmation,
+      },
+    };
+    const response = await axios.post('http://localhost:4000/signup', body);
+    localStorage.setItem('tokenAuth', response.headers.authorization);
+    return response.data;
 });
 
 export const loginUser = createAsyncThunk('users/loginUser', async (data) => {
