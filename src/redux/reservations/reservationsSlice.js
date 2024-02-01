@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import listOfReservations from './actions/indexReservations';
+import createReservations from './actions/createReservations';
 
 const initialState = {
   list: [],
+  status: 'ok',
 };
 
 const reservationsSlice = createSlice({
@@ -13,7 +15,10 @@ const reservationsSlice = createSlice({
     builder
       .addCase(listOfReservations.fulfilled, (state, action) => {
         state.list = action.payload;
-      });
+      })
+      .addCase(createReservations.fulfilled, (state, action) => {
+        state.status = action.payload.message;
+      })
   },
 });
 
