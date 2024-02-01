@@ -23,10 +23,10 @@ const Nav = () => {
           <NavLink to="/myreservations">MY RESERVATIONS</NavLink>
         </li>
         <li>
-          <NavLink to="#">ADD A DOCTOR</NavLink>
+          <NavLink to="/createdoctors">ADD A DOCTOR</NavLink>
         </li>
         <li>
-          <NavLink to="#">DELETE A DOCTOR</NavLink>
+          <NavLink to="/deletedoctor">DELETE A DOCTOR</NavLink>
         </li>
         <li>
           <button onClick={handleLogOut}>LOGOUT</button>

@@ -13,7 +13,7 @@ const Authorization = () => {
   }, [dispatch]);
 
   if (authorized) {
-    return <Home loggedIn={true} id={userId} />
+    return <Home loggedIn id={userId} />;
   }
 
   return <Home loggedIn={false} id={null} />;

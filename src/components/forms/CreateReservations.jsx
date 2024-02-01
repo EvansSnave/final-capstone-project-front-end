@@ -8,7 +8,7 @@ const CreateReservations = ({ id }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(createReservations({data, id}));
+    dispatch(createReservations({ data, id }));
   };
 
   return (

@@ -18,7 +18,7 @@ const reservationsSlice = createSlice({
       })
       .addCase(createReservations.fulfilled, (state, action) => {
         state.status = action.payload.message;
-      })
+      });
   },
 });
 
