@@ -1,4 +1,5 @@
 import Authorization from './Authorization';
+import RoutesApp from './components/routes/RoutesApp';
 
 function App() {
   return (

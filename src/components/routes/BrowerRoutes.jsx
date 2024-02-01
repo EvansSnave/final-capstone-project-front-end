@@ -7,7 +7,6 @@ import RoutesApp from './RoutesApp';
 const Browser = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <RoutesApp />
       <App />
     </Provider>
   </BrowserRouter>

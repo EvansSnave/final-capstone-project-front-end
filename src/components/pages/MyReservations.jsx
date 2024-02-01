@@ -16,9 +16,9 @@ const MyReservations = () => {
       {reservations.map((reservation) => (
         <li>
           <p>{reservation.id}</p>
-          <p>{reservation.user_id}</p>
-          <p>{reservation.doctor_id}</p>
-          <p>{reservation.schedule_date}</p>
+          <p>{reservation.userId}</p>
+          <p>{reservation.doctorId}</p>
+          <p>{reservation.scheduleDate}</p>
         </li>
       ))}
     </ul>
