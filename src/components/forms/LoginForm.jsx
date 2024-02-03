@@ -12,10 +12,12 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-control">
-        <label>Name</label>
+    <form className='login' onSubmit={handleSubmit(onSubmit)}>
+      <h1 className='login__title' >LOGIN</h1>
+      <div className="login__control">
         <input
+          placeholder='Name'
+          className='login__input'
           type="text"
           name="name"
           {...register('name', {
@@ -23,12 +25,13 @@ const LoginForm = () => {
             maxLength: { value: 80, message: 'Name must be 80 or less characters long' },
           })}
         />
-        {errors.name && (<p className="errorMsg">{errors.name.message}</p>)}
+        {errors.name && (<p className="login__errors">{errors.name.message}</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Email</label>
+      <div className="login__control">
         <input
+          placeholder='Email'
+          className='login__input'
           type="email"
           name="email"
           {...register('email', {
@@ -40,12 +43,13 @@ const LoginForm = () => {
             },
           })}
         />
-        {errors.email && (<p className="errorMsg">{errors.email.message}</p>)}
+        {errors.email && (<p className="login__errors">{errors.email.message}</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Password</label>
+      <div className="login__control">
         <input
+          placeholder='Password'
+          className='login__input'
           type="password"
           name="password"
           {...register('password', {
@@ -54,14 +58,13 @@ const LoginForm = () => {
             maxLength: { value: 40, message: 'Password cannot be more than 40 characters long' },
           })}
         />
-        {errors.password && (<p className="errorMsg">{errors.password.message}</p>)}
+        {errors.password && (<p className="login__errors">{errors.password.message}</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Submit</label>
-        <button type="submit">Login</button>
+      <div className="login__control">
+        <button className='login__button' type="submit">Login</button>
       </div>
-      <p>Need an account?</p>
+      <p className='login__to-sign-up'>Need an account?</p>
     </form>
   );
 };

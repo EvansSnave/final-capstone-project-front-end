@@ -1,0 +1,26 @@
+%flex-parent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%button-out {
+  background-color: $main__form-button_out;
+  padding: 10px;
+  margin: 5px;
+  color: $input_bg;
+  border-radius: 20px;
+  transition: all 0.2s;
+  border: $main__form-button_out solid 2px;
+  &:hover {
+    transform: scale(1.1);
+    color: $main__form-button_out;
+    background-color: $input_bg;
+  }
+  &:active {
+    transform: scale(0.9);
+    background-color: $main__form-button_out;
+    color: $input_bg;
+  }
+}
