@@ -3,7 +3,7 @@
 }
 
 .navigator {
-  width: 260px;
+  width: 250px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,8 @@
     .navigator__list-link {
       display: flex;
       padding: 20px 70px 20px 20px;
-      width: 100%;
+      width: 94%;
+      margin-left: 15px;
       @extend %increase-font;
       color: $standard-font;
       &:hover {

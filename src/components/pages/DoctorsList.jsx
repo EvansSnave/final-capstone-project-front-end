@@ -1,45 +1,58 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
+  const [sliderRef, setSliderRef] = useState(null)
 
   useEffect(() => {
     dispatch(listOfDoctors());
   }, []);
 
+  const settings = {
+    dots: false,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: false,
+    autoplaySpeed: 1000,
+  };
+
   const doctors = useSelector((state) => state.doctors.doctorsList);
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const totalSlides = Math.ceil(doctors.length / 3);
-
-  const handleBack = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? totalSlides - 1 : prevSlide - 1));
-  };
-
-  const handleForward = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === totalSlides - 1 ? 0 : prevSlide + 1));
-  };
-
   return (
-    <div className="carousel">
-      <button className='carousel__back-button' onClick={handleBack}>Back</button>
-      <ul className="carousel__slides">
-        {doctors.slice(currentSlide * 3, (currentSlide + 1) * 3).map((doctor) => (
-          <li className='carousel__item' key={doctor.id}>
-            <p className='carousel__item-detail'>Id: {doctor.id}</p>
-            <p className='carousel__item-detail'>City id: {doctor.cityId}</p>
-            <p className='carousel__item-detail'>User id: {doctor.userId}</p>
-            <p className='carousel__item-detail'>Name: {doctor.name}</p>
-            <p className='carousel__item-detail'>Description: {doctor.description}</p>
-            <p className='carousel__item-detail'>Age{doctor.age}</p>
+    <ul className='carousel'>
+      <div className='carousel__text'>
+        <h1 className='carousel__title'>DOCTORS</h1>
+        <p className='carousel__sub-title'>Select a doctor to see details</p>
+        <div className='carousel__decoration'>
+          ...............................................
+          </div>
+      </div>
+      <button className='carousel__arrow_prev arrow' onClick={sliderRef?.slickPrev}>{"<"}</button>
+      <Slider className='carousel__slides' ref={setSliderRef} {...settings}>
+          {doctors.map((doctor) => (
+          <li className='carousel__slide-container'>
+            <div className='carousel__details'>
+              <p className='carousel__name'>{doctor.name}</p>
+              <p className='carousel__details'>{doctor.description}</p>
+              <div className='carousel__info'>
+                <p>{doctor.id}</p>
+                <p>{doctor.cityId}</p>
+                <p>{doctor.userId}</p>
+                <p>{doctor.age}</p>
+              </div>
+            </div>
           </li>
         ))}
-      </ul>
-      <button className='carousel__forward-button' onClick={handleForward}>Forward</button>
-    </div>
+      </Slider>
+      <button className='carousel__arrow_next arrow' onClick={sliderRef?.slickNext}>{">"}</button>
+    </ul>
   );
 };
 

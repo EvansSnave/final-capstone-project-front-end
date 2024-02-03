@@ -1,9 +1,72 @@
 .carousel {
-  position: relative;
-  display: flex;
+  width: 90%;
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    padding: 15px;
+    background-color: $main__form-button_out;
+    width: 70px;
+    color: $input_bg;
+    z-index: 30;
+  }
+
+  .carousel__text {
+    margin-top: 10vh;
+    position: absolute;
+    display: flex;
+    width: -webkit-fill-available;
+    flex-direction: column;
+    align-items: center;
+
+    .carousel__title {
+      @extend %title-font;
+    }
+
+    .carousel__sub-title {
+      @extend %title-font;
+      font-size: 12px;
+      color: $sub-title;
+      letter-spacing: 0;
+    }
+  }
+
+  .carousel__arrow_next {
+    right: 0;
+    padding-right: 30px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+
+  .carousel__arrow_prev {
+    padding-left: 30px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
 
   .carousel__slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    margin: 0 125px;
+  }
+
+  .carousel__slide-container {
+    margin-top: 45vh;
+
+    .carousel__details {
+      @extend %flex-parent;
+
+      .carousel__info {
+        display: flex;
+      }
+
+      .carousel__name {
+        font-family: 'Titles';
+        font-weight: 700;
+      }
+    }
+  }
+
+  .carousel__decoration {
+    color: $separator;
+    margin-top: 10px;
   }
 }
