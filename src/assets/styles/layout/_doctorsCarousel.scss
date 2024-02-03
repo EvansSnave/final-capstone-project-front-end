@@ -1,0 +1,9 @@
+.carousel {
+  position: relative;
+  display: flex;
+
+  .carousel__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+}

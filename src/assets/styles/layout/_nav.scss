@@ -1,3 +1,35 @@
 .main__logged-in {
+  display: flex;
+}
 
+.navigator {
+  width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: -13px 0px 20px 0px;
+  position: sticky;
+  .navigator__img {
+    width: 100px;
+    align-self: center;
+    margin-top: 20px;
+  }
+  .navigator__list {
+    margin-top: 50px;
+    .navigator__list-link {
+      display: flex;
+      padding: 20px 70px 20px 20px;
+      width: 100%;
+      @extend %increase-font;
+      color: $standard-font;
+      &:hover {
+        background-color: $main__form-button_out;
+        color: $input_bg;
+      }
+      &:focus {
+        animation: move-to-the-side 0.5s;
+      }
+    }
+  }
 }

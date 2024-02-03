@@ -1,8 +1,10 @@
 @import "layout/utils/colors";
 @import "layout/utils/placeholders";
 @import "layout/utils/fonts";
+@import "layout/utils/animations";
 
 @import "reset";
 
 @import "layout/loginForm";
-@import "layout/nav"
+@import "layout/nav";
+@import "layout/doctorsCarousel";

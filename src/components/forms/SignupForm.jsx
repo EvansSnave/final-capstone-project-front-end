@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signupUser } from '../../redux/users/usersSlice';
+import logo from '../../assets/doc-no-bg.png'
 
 const SignupForm = () => {
   const {
@@ -17,6 +18,7 @@ const SignupForm = () => {
 
   return (
     <form className='login' onSubmit={handleSubmit(onSubmit)}>
+      <img className='login__logo' alt='page logo' src={logo}/>
       <h1 className='login__title' >SIGNUP</h1>
       <div className="login__control">
         <input
