@@ -31,11 +31,14 @@ const DeleteDoctors = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {isSuccess && (<div>Doctor deleted successfully.</div>)}
-      <div className="form-control">
-        <label>Doctor id</label>
+    <div className='doctor__cont delete'>
+      <form className='doctor' onSubmit={handleSubmit(onSubmit)}>
+      <h1 className='doctor__title'>DELETE DOCTOR</h1>
+      {isSuccess && (<div className='success'>Doctor deleted successfully.</div>)}
+      <div className="doctor__control delete__control">
         <input
+          placeholder='Doctor id'
+          className='doctor__input input_delete'
           type="number"
           name="id"
           {...register('id', {
@@ -44,15 +47,13 @@ const DeleteDoctors = () => {
             validate: doctorExist,
           })}
         />
-        {errors.id && (<p className="errorMsg">{errors.id.message}</p>)}
-        {errors.id?.type === 'validate' && (<p className="errorMsg">Doctor id does not exist</p>)}
+        {errors.id && (<p className="errors">{errors.id.message}</p>)}
+        {errors.id?.type === 'validate' && (<p className="errors">Doctor id does not exist</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Submit</label>
-        <button type="submit">Delete Doctor</button>
-      </div>
+      <button className='doctor__button' type="submit">Delete Doctor</button>
     </form>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 .doctor__cont {
   width: 90%;
+  background: linear-gradient(#b1e7a6, #727272);
   @extend %flex-parent;
   .doctor {
     @extend %flex-parent;
