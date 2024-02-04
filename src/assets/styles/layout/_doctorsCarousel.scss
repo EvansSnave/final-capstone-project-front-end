@@ -9,6 +9,11 @@
     width: 70px;
     color: $input_bg;
     z-index: 30;
+    transition: all 0.2s;
+    &:hover {
+      background-color: $description;
+      color: $main__form-button_out;
+    }
   }
 
   .carousel__text {
@@ -93,8 +98,13 @@
       .carousel__image {
         width: 215px;
         height: 215px;
+        margin-top: 10px;
         margin-bottom: 40px;
         border-radius: 50%;
+        transition: all 0.2s;
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }

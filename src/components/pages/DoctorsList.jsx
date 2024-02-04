@@ -5,9 +5,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 import logo from '../../assets/reference.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [sliderRef, setSliderRef] = useState(null);
 
   useEffect(() => {
@@ -25,6 +27,10 @@ const DoctorsList = () => {
     autoplaySpeed: 1000,
   };
 
+  const details = (id) => {
+    navigate(`/${id}`);
+  }
+
   const doctors = useSelector((state) => state.doctors.doctorsList);
   return (
     <ul className="carousel">
@@ -40,7 +46,7 @@ const DoctorsList = () => {
         {doctors.map((doctor) => (
           <li className="carousel__slide-container">
             <div className="carousel__img_container">
-              <img src={logo} alt="Doctors photo" className="carousel__image" />
+              <img onClick={() => details(doctor.id)} src={logo} alt="Doctors photo" className="carousel__image" />
             </div>
             <div className="carousel__details">
               <p className="carousel__name">{doctor.name}</p>
