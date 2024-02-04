@@ -15,6 +15,11 @@
     margin: 0 200px;
   }
 
+  &__arrow {
+    width: 0;
+    height: 0;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -22,22 +27,47 @@
     &:nth-child(odd) {
       flex-direction: column-reverse;
       background-color: #c54f65;
+
+      .reservation__arrow {
+        @extend %arrows-down;
+        border-top-color: #c54f65;
+      }
     }
 
     &:nth-child(2n) {
       background-color: #ffc600;
+
+      .reservation__arrow {
+        @extend %arrows-up;
+        border-bottom-color: #ffc600;
+      }
     }
 
     &:nth-child(5n) {
       background-color: #252525;
+
+      .reservation__arrow {
+        @extend %arrows-down;
+        border-top-color: #252525;
+      }      
     }
 
     &:nth-child(4n) {
       background-color: #10bbb5;
+
+      .reservation__arrow {
+        @extend %arrows-up;
+        border-bottom-color: #10bbb5;
+      }
     }
 
     &:nth-child(6n) {
       background-color: #99c110;
+
+      .reservation__arrow {
+        @extend %arrows-up;
+        border-bottom-color: #99c110;
+      }
     }
   }
 

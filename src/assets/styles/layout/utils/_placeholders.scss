@@ -36,3 +36,21 @@
   font-weight: 900;
   letter-spacing: 1px;
 }
+
+%arrows-down {
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent;        
+  border-top: 15px solid;
+  position: absolute;
+  margin-left: 135px;
+  margin-bottom: 285px;
+}
+
+%arrows-up {
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent;        
+  border-bottom: 15px solid;
+  position: absolute;
+  margin-left: 135px;
+  margin-top: 285px;
+}

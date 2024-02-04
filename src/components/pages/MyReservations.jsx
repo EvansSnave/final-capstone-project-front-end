@@ -13,8 +13,8 @@ const MyReservations = ({ id }) => {
     dispatch(listOfReservations(id));
   }, [dispatch]);
 
-  const handleDelete = (r_id) => {
-    dispatch(deleteReservations(r_id));
+  const handleDelete = (reserveId) => {
+    dispatch(deleteReservations(reserveId));
   };
 
   return (
@@ -35,6 +35,7 @@ const MyReservations = ({ id }) => {
                 onClick={() => handleDelete(reservation.id)}
                 />
               </li>
+              <div className="reservation__arrow"></div>
             </div>
           </>
         ))}
