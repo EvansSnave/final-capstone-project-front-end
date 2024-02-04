@@ -17,7 +17,7 @@ const DeleteDoctors = () => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, [doctors]);
+  }, [dispatch]);
 
   const onSubmit = (data) => {
     dispatch(deleteDoctors(data));

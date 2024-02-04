@@ -1,27 +1,45 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import listOfReservations from '../../redux/reservations/actions/indexReservations';
+import deleteReservations from '../../redux/reservations/actions/deleteReservations';
+import doctor from '../../assets/reference.jpg';
+import trash from '../../assets/trash-can.png'
 
 const MyReservations = ({ id }) => {
   const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservations.list);
 
   useEffect(() => {
     dispatch(listOfReservations(id));
   }, [dispatch]);
 
-  const reservations = useSelector((state) => state.reservations.list);
+  const handleDelete = (r_id) => {
+    dispatch(deleteReservations(r_id));
+  };
 
   return (
-    <ul>
-      {reservations.map((reservation) => (
-        <li>
-          <p>{reservation.id}</p>
-          <p>{reservation.userId}</p>
-          <p>{reservation.doctorId}</p>
-          <p>{reservation.scheduleDate}</p>
-        </li>
-      ))}
-    </ul>
+    <div className='reservation'>
+      <ul className='reservation__list'>
+        {reservations.map((reservation) => (
+          <>
+            <div className='reservation__container' key={reservation.id}>
+              <img className='reservation__image' alt='Doctor photo' src={doctor}/>
+              <li className='reservation__item'>
+                <p className='reservation__data'>Doctor id: {reservation.doctorId}</p>
+                <p className='reservation__data'>Reservation id: {reservation.id}</p>
+                <p className='reservation__data'>Date: {reservation.scheduleDate}</p>
+                <img 
+                className='reservation__trash' 
+                alt='trash icon' 
+                src={trash}
+                onClick={() => handleDelete(reservation.id)}
+                />
+              </li>
+            </div>
+          </>
+        ))}
+      </ul>
+    </div>
   );
 };
 

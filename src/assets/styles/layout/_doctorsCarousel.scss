@@ -49,24 +49,58 @@
   }
 
   .carousel__slide-container {
-    margin-top: 45vh;
+    margin-top: 30vh;
 
     .carousel__details {
       @extend %flex-parent;
+      margin: 0 10px;
 
       .carousel__info {
         display: flex;
+        margin-top: 5px;
       }
 
       .carousel__name {
         font-family: 'Titles';
         font-weight: 700;
+        font-size: 18px;
+        height: 60px;
+        text-align: center;
+      }
+
+      .carousel__description {
+        margin-top: 20px;
+        color: $description;
+        font-size: 15px;
+        text-align: center;
+        word-break: break-all;
+        height: 120px;
+        border-radius: 20px;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .carousel__data {
+        margin-right: 5px;
+        color: $description;
+      }
+    }
+
+    .carousel__img_container {
+      display: flex;
+      justify-content: center;
+      .carousel__image {
+        width: 215px;
+        height: 215px;
+        margin-bottom: 40px;
+        border-radius: 50%;
       }
     }
   }
 
   .carousel__decoration {
     color: $separator;
-    margin-top: 10px;
+    font-size: 23px;
   }
 }

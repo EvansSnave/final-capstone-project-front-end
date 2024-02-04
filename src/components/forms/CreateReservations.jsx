@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import createReservations from '../../redux/reservations/actions/createReservations';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
+import bg from '../../assets/doctor-room-two.jpg'
 
 const CreateReservations = ({ id }) => {
   const {
@@ -28,7 +29,7 @@ const CreateReservations = ({ id }) => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, [doctors]);
+  }, []);
 
   const isFutureDate = (value) => {
     const currentDate = new Date();
@@ -37,11 +38,16 @@ const CreateReservations = ({ id }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {isSuccess && (<div>Reservation submitted successfully.</div>)}
-      <div className="form-control">
-        <label>Doctor id</label>
+    <div className='reserve__container'>
+      <img className='reserve__bg' alt='Doctor room' src={bg}/>
+      <form className='reserve' onSubmit={handleSubmit(onSubmit)}>
+      <h1 className='reserve__title'>RESERVE A DOCTOR</h1>
+      <div className='reserve__separator'></div>
+      {isSuccess && (<div className='success'>Reservation submitted successfully.</div>)}
+      <div className="reserve__control">
+        <label className='reserve__label'>Doctor id</label>
         <input
+          className='reserve__input input__number'
           type="number"
           name="doctorId"
           {...register('doctorId', {
@@ -50,28 +56,28 @@ const CreateReservations = ({ id }) => {
             validate: doctorExist,
           })}
         />
-        {errors.doctorId && (<p className="errorMsg">{errors.doctorId.message}</p>)}
-        {errors.doctorId?.type === 'validate' && (<p className="errorMsg">Doctor id does not exist</p>)}
+        {errors.doctorId && (<p className="errors">{errors.doctorId.message}</p>)}
+        {errors.doctorId?.type === 'validate' && (<p className="errors">Doctor id does not exist</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Schedule date</label>
+      <div className="reserve__control">
+        <label className='reserve__label'>Schedule date</label>
         <input
+          placeholder='Schedule date'
+          className='reserve__input'
           type="date"
           name="scheduleDate"
           {...register('scheduleDate', {
             required: true, validate: isFutureDate,
           })}
         />
-        {errors.scheduleDate?.type === 'required' && (<p className="errorMsg">Schedule date is required</p>)}
-        {errors.scheduleDate?.type === 'validate' && (<p className="errorMsg">Schedule date must be in the future</p>)}
+        {errors.scheduleDate?.type === 'required' && (<p className="errors">Schedule date is required</p>)}
+        {errors.scheduleDate?.type === 'validate' && (<p className="errors">Schedule date must be in the future</p>)}
       </div>
 
-      <div className="form-control">
-        <label>Submit</label>
-        <button type="submit">Reserve doctor</button>
-      </div>
+      <button className='reserve__button' type="submit">Reserve doctor</button>
     </form>
+    </div>
   );
 };
 

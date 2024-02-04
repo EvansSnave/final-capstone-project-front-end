@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
+import logo from '../../assets/reference.jpg'
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
@@ -38,14 +39,19 @@ const DoctorsList = () => {
       <Slider className='carousel__slides' ref={setSliderRef} {...settings}>
           {doctors.map((doctor) => (
           <li className='carousel__slide-container'>
+            <div className='carousel__img_container'>
+              <img src={logo} alt="Doctors photo" className='carousel__image'/>
+            </div>
             <div className='carousel__details'>
               <p className='carousel__name'>{doctor.name}</p>
-              <p className='carousel__details'>{doctor.description}</p>
+              <div className='carousel__decoration'>
+                .........................
+                </div>
+              <div className='carousel__description'>{doctor.description}</div>
               <div className='carousel__info'>
-                <p>{doctor.id}</p>
-                <p>{doctor.cityId}</p>
-                <p>{doctor.userId}</p>
-                <p>{doctor.age}</p>
+                <p className='carousel__data'>Doctor id: {doctor.id}</p>
+                <p className='carousel__data'>City id: {doctor.cityId}</p>
+                <p className='carousel__data'>Age: {doctor.age}</p>
               </div>
             </div>
           </li>
