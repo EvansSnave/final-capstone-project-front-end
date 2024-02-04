@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../redux/users/usersSlice';
-import logo from '../../assets/doc-no-bg.png'
+import logo from '../../assets/doc-no-bg.png';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,13 +13,13 @@ const LoginForm = () => {
   };
 
   return (
-    <form className='login' onSubmit={handleSubmit(onSubmit)}>
-      <img className='login__logo' alt='page logo' src={logo}/>
-      <h1 className='login__title' >LOGIN</h1>
+    <form className="login" onSubmit={handleSubmit(onSubmit)}>
+      <img className="login__logo" alt="page logo" src={logo} />
+      <h1 className="login__title">LOGIN</h1>
       <div className="login__control">
         <input
-          placeholder='Name'
-          className='login__input'
+          placeholder="Name"
+          className="login__input"
           type="text"
           name="name"
           {...register('name', {
@@ -32,8 +32,8 @@ const LoginForm = () => {
 
       <div className="login__control">
         <input
-          placeholder='Email'
-          className='login__input'
+          placeholder="Email"
+          className="login__input"
           type="email"
           name="email"
           {...register('email', {
@@ -50,8 +50,8 @@ const LoginForm = () => {
 
       <div className="login__control">
         <input
-          placeholder='Password'
-          className='login__input'
+          placeholder="Password"
+          className="login__input"
           type="password"
           name="password"
           {...register('password', {
@@ -64,9 +64,9 @@ const LoginForm = () => {
       </div>
 
       <div className="login__control">
-        <button className='login__button' type="submit">Login</button>
+        <button className="login__button" type="submit">Login</button>
       </div>
-      <p className='login__to-sign-up'>Need an account?</p>
+      <p className="login__to-sign-up">Need an account?</p>
     </form>
   );
 };

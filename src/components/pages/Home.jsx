@@ -6,7 +6,7 @@ const Home = ({ loggedIn, id }) => (
   <>
     {loggedIn
       ? (
-        <main className='main__logged-in'>
+        <main className="main__logged-in">
           <Nav />
           <RoutesApp id={id} />
         </main>

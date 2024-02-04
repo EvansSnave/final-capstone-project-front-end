@@ -1,0 +1,38 @@
+.doctor__cont {
+  width: 90%;
+  @extend %flex-parent;
+  .doctor {
+    @extend %flex-parent;
+
+    &__control {
+      margin: 10px 0;
+    }
+
+    &__title {
+      @extend %title-font;
+      margin: 10px 0;
+    }
+
+    &__input {
+      padding: 5px;
+      border: black solid 1px;
+      border-radius: 20px;
+    }
+
+    &__text {
+      resize: none;
+      padding: 5px;
+      border: black solid 1px;
+      border-radius: 20px;
+      height: 110px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__button {
+      @extend %button-out; 
+     }
+  }
+}

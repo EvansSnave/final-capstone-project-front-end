@@ -11,15 +11,15 @@ const Nav = () => {
   };
 
   return (
-    <nav className='navigator'>
-      <img className='navigator__img' alt='page icon' src={logo}/>
-      <ul className='navigator__list'>
-        <NavLink className='navigator__list-link' to="/">DOCTORS</NavLink>
-        <NavLink className='navigator__list-link' to="/reserve">RESERVE A DOCTOR</NavLink>
-        <NavLink className='navigator__list-link' to="/myreservations">MY RESERVATIONS</NavLink>
-        <NavLink className='navigator__list-link' to="/createdoctors">ADD A DOCTOR</NavLink>
-        <NavLink className='navigator__list-link' to="/deletedoctor">DELETE A DOCTOR</NavLink>
-        <button className='navigator__list-link' onClick={handleLogOut}>LOGOUT</button>
+    <nav className="navigator">
+      <img className="navigator__img" alt="page icon" src={logo} />
+      <ul className="navigator__list">
+        <NavLink className="navigator__list-link" to="/">DOCTORS</NavLink>
+        <NavLink className="navigator__list-link" to="/reserve">RESERVE A DOCTOR</NavLink>
+        <NavLink className="navigator__list-link" to="/myreservations">MY RESERVATIONS</NavLink>
+        <NavLink className="navigator__list-link" to="/createdoctors">ADD A DOCTOR</NavLink>
+        <NavLink className="navigator__list-link" to="/deletedoctor">DELETE A DOCTOR</NavLink>
+        <button className="navigator__list-link" onClick={handleLogOut}>LOGOUT</button>
       </ul>
     </nav>
   );

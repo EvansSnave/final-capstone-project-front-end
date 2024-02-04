@@ -22,7 +22,7 @@ const reservationsSlice = createSlice({
         state.status = action.payload.message;
       })
       .addCase(deleteReservations.fulfilled, (state, action) => {
-        state.list = state.list.filter(reservation => reservation.id !== action.meta.arg);
+        state.list = state.list.filter((reservation) => reservation.id !== action.meta.arg);
         state.message = action.payload.message;
       });
   },

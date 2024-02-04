@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signupUser } from '../../redux/users/usersSlice';
-import logo from '../../assets/doc-no-bg.png'
+import logo from '../../assets/doc-no-bg.png';
 
 const SignupForm = () => {
   const {
@@ -17,13 +17,13 @@ const SignupForm = () => {
   };
 
   return (
-    <form className='login' onSubmit={handleSubmit(onSubmit)}>
-      <img className='login__logo' alt='page logo' src={logo}/>
-      <h1 className='login__title' >SIGNUP</h1>
+    <form className="login" onSubmit={handleSubmit(onSubmit)}>
+      <img className="login__logo" alt="page logo" src={logo} />
+      <h1 className="login__title">SIGNUP</h1>
       <div className="login__control">
         <input
-          placeholder='Name'
-          className='login__input'
+          placeholder="Name"
+          className="login__input"
           type="text"
           name="name"
           {...register('name', {
@@ -36,8 +36,8 @@ const SignupForm = () => {
 
       <div className="login__control">
         <input
-          placeholder='Email'
-          className='login__input'
+          placeholder="Email"
+          className="login__input"
           type="email"
           name="email"
           {...register('email', {
@@ -54,8 +54,8 @@ const SignupForm = () => {
 
       <div className="login__control">
         <input
-          placeholder='Password'
-          className='login__input'
+          placeholder="Password"
+          className="login__input"
           type="password"
           name="password"
           {...register('password', {
@@ -69,8 +69,8 @@ const SignupForm = () => {
 
       <div className="login__control">
         <input
-          placeholder='Password confirmation'
-          className='login__input'
+          placeholder="Password confirmation"
+          className="login__input"
           type="password"
           name="passwordConfirmation"
           {...register('passwordConfirmation', {
@@ -82,9 +82,9 @@ const SignupForm = () => {
       </div>
 
       <div className="login__control">
-        <button className='login__button' type="submit">Sign up</button>
+        <button className="login__button" type="submit">Sign up</button>
       </div>
-      <p className='login__to-sign-up'>Do you have an account?</p>
+      <p className="login__to-sign-up">Do you have an account?</p>
     </form>
   );
 };
