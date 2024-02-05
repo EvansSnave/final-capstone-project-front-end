@@ -13,17 +13,24 @@
   &__list {
     display: grid;
     grid-template-rows: 600px;
-    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-    grid-auto-columns: minmax(300px,1fr);
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    grid-auto-columns: minmax(300px, 1fr);
     grid-auto-flow: column;
     position: relative;
     margin: 0 200px;
 
     @include small-down {
       margin: 0;
-      grid-template-rows: 98vh;
-      grid-template-columns: repeat(auto-fill,minmax(50vw,1fr));
-      grid-auto-columns: minmax(50vw,1fr);
+      grid-template-rows: 100vh;
+      grid-template-columns: repeat(auto-fill,minmax(50vw, 1fr));
+      grid-auto-columns: minmax(50vw, 1fr);
+    }
+
+    @include extra-small-down {
+      margin: 0;
+      grid-template-rows: 100vh;
+      grid-template-columns: repeat(auto-fill,minmax(100vw, 1fr));
+      grid-auto-columns: minmax(100vw, 1fr);
     }
   }
 
@@ -39,9 +46,15 @@
         @extend %arrows-down;
         border-top-color: #c54f65;
 
+        @include extra-small-down {
+          margin-left: 48vmin;
+          margin-bottom: 48.5vh;
+          margin: 0 5%;
+        }
+
         @include small-down {
-          margin-left: 23vmin;
-          margin-bottom: 47.5vh;
+          margin-left: 9.5%;
+          margin-bottom: 48.5vh;
         }
       }
     }
@@ -52,6 +65,11 @@
       .reservation__arrow {
         @extend %arrows-up;
         border-bottom-color: #ffc600;
+
+        @include small-down {
+          margin-left: 9.5%;
+          margin-top: 48.5vh;
+        }
       }
     }
 
@@ -121,6 +139,10 @@
     @include small-down {
       width: 50vw;
       height: 50vh;
+    }
+
+    @include extra-small-down {
+      width: 100vw;
     }
   }
 }

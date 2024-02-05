@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin extra-small-down {
+  @media (max-width: 550px) {
+    @content;
+  }
+}

@@ -27,7 +27,7 @@ const DoctorsList = () => {
     autoplaySpeed: 1000,
     responsive: [
       {
-        breakpoint: 1000,
+        breakpoint: 700,
         settings: {
           slidesToShow: 1,
         },
