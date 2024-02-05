@@ -51,6 +51,10 @@
 
   .carousel__slides {
     margin: 0 125px;
+
+    @include small-down {
+      margin: 0 70px;
+    }
   }
 
   .carousel__slide-container {

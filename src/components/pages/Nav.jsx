@@ -1,17 +1,51 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../../redux/users/usersSlice';
+import { useMediaQuery } from "@uidotdev/usehooks";
+import { useState, useEffect } from 'react';
 import logo from '../../assets/doc.png';
+import burger from '../../assets/burger-black.png'
 
 const Nav = () => {
   const dispatch = useDispatch();
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const smallScreen = useMediaQuery("only screen and (max-width: 1000px)");
+  const bigScreen = useMediaQuery("only screen and (min-width: 1001px)");
 
   const handleLogOut = () => {
     dispatch(logoutUser());
   };
 
+  const handleBurgerClick = () => {
+    setIsMenuVisible(!isMenuVisible);
+  };
+
+  const handleOverlayClick = () => {
+    setIsMenuVisible(false);
+  };
+
+  useEffect(() => {
+    if (bigScreen) {
+      setIsMenuVisible(true);
+    } else {
+      setIsMenuVisible(false);
+    }
+  }, [bigScreen]);
+
   return (
-    <nav className="navigator">
+    <>
+    {smallScreen && isMenuVisible && (
+        <div className="navigator__overlay" onClick={handleOverlayClick}></div>
+      )}
+    {smallScreen && (
+      <img 
+        className={`burger${isMenuVisible ? ' invisible' : ''}`}
+        alt="nav icon" 
+        src={burger} 
+        onClick={handleBurgerClick}
+      />
+    )}
+    <nav className={`navigator${isMenuVisible ? ' visible' : ''}`}>
       <img className="navigator__img" alt="page icon" src={logo} />
       <ul className="navigator__list">
         <NavLink className="navigator__list-link" to="/">DOCTORS</NavLink>
@@ -22,6 +56,7 @@ const Nav = () => {
         <button className="navigator__list-link" onClick={handleLogOut}>LOGOUT</button>
       </ul>
     </nav>
+    </>
   );
 };
 

@@ -113,3 +113,13 @@
 .unique_color {
   background-color: #e2e3e5;
 }
+
+main,
+.carousel,
+.reserve__container,
+.doctor__cont {
+  @include small-down {
+    width: 100%;
+    height: 100%;
+  }
+}

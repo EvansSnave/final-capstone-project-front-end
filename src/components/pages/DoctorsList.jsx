@@ -20,11 +20,31 @@ const DoctorsList = () => {
     dots: false,
     arrows: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
     autoplay: false,
     autoplaySpeed: 1000,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 9999,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 2,
+        },
+      }
+    ]
   };
 
   const details = (id) => {
@@ -46,7 +66,7 @@ const DoctorsList = () => {
         {doctors.map((doctor) => (
           <li className="carousel__slide-container">
             <div className="carousel__img_container">
-              <img onClick={() => details(doctor.id)} src={logo} alt="Doctors photo" className="carousel__image" />
+              <img onClick={() => details(doctor.id)} src={logo} alt="Doctors face" className="carousel__image" />
             </div>
             <div className="carousel__details">
               <p className="carousel__name">{doctor.name}</p>
