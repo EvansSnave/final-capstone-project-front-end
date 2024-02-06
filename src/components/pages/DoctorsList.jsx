@@ -54,7 +54,9 @@ const DoctorsList = () => {
 
   return (
     <ul className="carousel">
-      <div className="carousel__text">
+      {doctors.length > 0 ? 
+        <>
+        <div className="carousel__text">
         <h1 className="carousel__title">DOCTORS</h1>
         <p className="carousel__sub-title">Select a doctor to see details</p>
         <div className="carousel__decoration">
@@ -93,6 +95,10 @@ const DoctorsList = () => {
         ))}
       </Slider>
       <button className="carousel__arrow_next arrow" onClick={sliderRef?.slickNext}>{'>'}</button>
+        </>
+      :
+        <div className='empty'>There are not doctors yet</div>
+      }
     </ul>
   );
 };

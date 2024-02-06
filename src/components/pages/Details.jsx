@@ -13,11 +13,15 @@ const Details = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    dispatch(detailsDoctors(id))
     dispatch(listOfDoctors())
+    dispatch(detailsDoctors(id))
   }, [dispatch, id]);
 
-  const doctor = doctors.find((doctor) => doctor.id == id);
+  const doctor = doctors.find((doctor) => doctor && doctor.id == id);
+
+  if (!doctor) {
+    return <div>Loading...</div>;
+  }
 
   const reserve = () => {
     navigate('/reserve');

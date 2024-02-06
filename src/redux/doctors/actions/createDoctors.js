@@ -19,7 +19,6 @@ const createDoctors = createAsyncThunk('doctors/createDoctors', async (data) => 
       'Content-Type': 'multipart/form-data',
     },
   });
-  
   return response.data;
 });
 

@@ -44,6 +44,7 @@
 .visible {
   display: flex;
   background-color: white;
+  z-index: 300;
 }
 
 .burger {

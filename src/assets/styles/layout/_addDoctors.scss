@@ -7,6 +7,7 @@
 
     &__control {
       margin: 10px 0;
+      @extend %flex-parent;
     }
 
     &__title {

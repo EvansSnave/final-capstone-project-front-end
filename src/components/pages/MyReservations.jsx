@@ -19,34 +19,38 @@ const MyReservations = ({ id }) => {
   return (
     <div className="reservation">
       <ul className="reservation__list">
-        {reservations.map((reservation) => (
-          <>
-            <div className="reservation__container" key={reservation.id}>
-              <img className="reservation__image" alt="Doctor photo" src={reservation.doctorImage} />
-              <li className="reservation__item">
-                <p className="reservation__data">
-                  Doctor id:
-                  {reservation.doctorId}
-                </p>
-                <p className="reservation__data">
-                  Reservation id:
-                  {reservation.id}
-                </p>
-                <p className="reservation__data">
-                  Date:
-                  {reservation.scheduleDate}
-                </p>
-                <img
-                  className="reservation__trash"
-                  alt="trash icon"
-                  src={trash}
-                  onClick={() => handleDelete(reservation.id)}
-                />
-              </li>
-              <div className="reservation__arrow" />
-            </div>
-          </>
-        ))}
+        {reservations.length > 0 ? 
+          reservations.map((reservation) => (
+            <>
+              <div className="reservation__container" key={reservation.id}>
+                <img className="reservation__image" alt="Doctor photo" src={reservation.doctorImage} />
+                <li className="reservation__item">
+                  <p className="reservation__data">
+                    Doctor id:
+                    {reservation.doctorId}
+                  </p>
+                  <p className="reservation__data">
+                    Reservation id:
+                    {reservation.id}
+                  </p>
+                  <p className="reservation__data">
+                    Date:
+                    {reservation.scheduleDate}
+                  </p>
+                  <img
+                    className="reservation__trash"
+                    alt="trash icon"
+                    src={trash}
+                    onClick={() => handleDelete(reservation.id)}
+                  />
+                </li>
+                <div className="reservation__arrow" />
+              </div>
+            </>
+          ))
+          :
+          <div className='empty'>There are not reservations yet</div>
+        }
       </ul>
     </div>
   );
