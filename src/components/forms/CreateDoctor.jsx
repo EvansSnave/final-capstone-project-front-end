@@ -103,7 +103,7 @@ const CreateDoctors = () => {
           <input
             placeholder="Image url"
             className="doctor__input"
-            type="text"
+            type="file"
             name="imageUrl"
             {...register('imageUrl', {
               required: 'Image url is required', maxLength: { value: 300, message: 'Image url is too long' },
