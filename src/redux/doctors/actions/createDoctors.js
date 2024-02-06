@@ -8,7 +8,7 @@ const createDoctors = createAsyncThunk('doctors/createDoctors', async (data) => 
   formData.append('doctor[city_id]', data.cityId);
   formData.append('doctor[user_id]', data.userId);
   formData.append('doctor[description]', data.description);
-  formData.append('doctor[avatar]', data.avatar[0], data.avatar.value);
+  formData.append('doctor[avatar]', data.imageUrl[0], data.imageUrl.value);
   formData.append('doctor[image_url]', data.imageUrl[0]);
   formData.append('doctor[detail_attributes][price]', data.price);
   formData.append('doctor[detail_attributes][specialization]', data.specialization);
@@ -19,6 +19,8 @@ const createDoctors = createAsyncThunk('doctors/createDoctors', async (data) => 
       'Content-Type': 'multipart/form-data',
     },
   });
+
+  console.log(response)
   
   return response.data;
 });
