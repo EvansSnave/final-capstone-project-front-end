@@ -67,7 +67,7 @@ const DoctorsList = () => {
         {doctors.map((doctor) => (
           <li className="carousel__slide-container">
             <div className="carousel__img_container">
-              <img onClick={() => details(doctor.id)} src={doctor.imageUrl} alt="Doctors face" className="carousel__image" />
+              <img onClick={() => details(doctor.id)} src={`http://localhost:4000${doctor.imageUrl}`} alt="Doctors face" className="carousel__image" />
             </div>
             <div className="carousel__details">
               <p className="carousel__name">{doctor.name}</p>

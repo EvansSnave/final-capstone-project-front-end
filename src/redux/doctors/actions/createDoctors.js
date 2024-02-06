@@ -9,7 +9,7 @@ const createDoctors = createAsyncThunk('doctors/createDoctors', async (data) => 
   formData.append('doctor[user_id]', data.userId);
   formData.append('doctor[description]', data.description);
   formData.append('doctor[avatar]', data.imageUrl[0], data.imageUrl.value);
-  formData.append('doctor[image_url]', data.imageUrl[0]);
+  formData.append('doctor[image_url]', data.imageUrl[0].avatar_url);
   formData.append('doctor[detail_attributes][price]', data.price);
   formData.append('doctor[detail_attributes][specialization]', data.specialization);
   formData.append('doctor[detail_attributes][studies]', data.studies);

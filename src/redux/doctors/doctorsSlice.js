@@ -8,6 +8,7 @@ const initialState = {
   doctorsList: [],
   message: 'ok',
   details: {},
+  images: []
 };
 
 const doctorsSlice = createSlice({
@@ -21,6 +22,7 @@ const doctorsSlice = createSlice({
       })
       .addCase(createDoctors.fulfilled, (state, action) => {
         state.message = action.payload.message;
+        state.images.push(action.payload);
       })
       .addCase(deleteDoctors.fulfilled, (state, action) => {
         state.message = action.payload.message;
