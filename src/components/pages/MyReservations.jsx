@@ -23,7 +23,7 @@ const MyReservations = ({ id }) => {
         {reservations.map((reservation) => (
           <>
             <div className="reservation__container" key={reservation.id}>
-              <img className="reservation__image" alt="Doctor photo" src={doctor} />
+              <img className="reservation__image" alt="Doctor photo" src={reservation.doctorImage} />
               <li className="reservation__item">
                 <p className="reservation__data">
                   Doctor id:
