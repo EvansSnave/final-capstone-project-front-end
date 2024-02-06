@@ -22,6 +22,7 @@ const listOfReservations = createAsyncThunk('reservations/listOfReservations', a
       doctorId: reservation.doctor_id,
       scheduleDate: reservation.schedule_date,
       doctorImage: `http://localhost:4000${doctor.imageUrl}`,
+      cityId: reservation.city_id
     };
   });
 

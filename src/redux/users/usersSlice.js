@@ -25,6 +25,7 @@ export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
       password_confirmation: data.password_confirmation,
     },
   };
+
   const response = await axios.post('http://localhost:4000/signup', body);
   localStorage.setItem('tokenAuth', response.headers.authorization);
   return response.data;

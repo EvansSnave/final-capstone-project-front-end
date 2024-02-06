@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import createDoctors from '../../redux/doctors/actions/createDoctors';
+import axios from 'axios';
 
 const CreateDoctors = () => {
   const {
@@ -10,6 +11,15 @@ const CreateDoctors = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const dispatch = useDispatch();
+
+  const checkUserId = async (data) => {
+    const users = await axios.get('http://localhost:4000/users');
+    const id = users.data.find((user) => user.id === Number(data));
+    if (id) {
+      return true;
+    }
+    return false;
+  }
 
   const onSubmit = (data) => {
     dispatch(createDoctors(data));
@@ -64,7 +74,7 @@ const CreateDoctors = () => {
             name="cityId"
             {...register('cityId', {
               required: 'City id is required',
-              max: { value: 7, message: 'City id cannot be greater than 7' },
+              max: { value: 4, message: 'City id cannot be greater than 4' },
               min: { value: 1, message: 'City id must be greater than 0' },
             })}
           />
@@ -79,9 +89,11 @@ const CreateDoctors = () => {
             name="userId"
             {...register('userId', {
               required: 'User id is required', min: { value: 1, message: 'User id must be greater than 0' },
+              validate: checkUserId
             })}
           />
           {errors.userId && (<p className="errors">{errors.userId.message}</p>)}
+          {errors.userId?.type === 'validate' && (<p className="errors">User id does not exist</p>)}
         </div>
 
         <div className="doctor__control">

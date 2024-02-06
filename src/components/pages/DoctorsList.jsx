@@ -15,6 +15,12 @@ const DoctorsList = () => {
     dispatch(listOfDoctors());
   }, []);
 
+  const details = (id) => {
+    navigate(`/${id}`);
+  }
+
+  const doctors = useSelector((state) => state.doctors.doctorsList);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -34,7 +40,7 @@ const DoctorsList = () => {
       {
         breakpoint: 9999,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: doctors.length >= 3 ? 3 : 2,
         },
       },
       {
@@ -45,12 +51,6 @@ const DoctorsList = () => {
       }
     ]
   };
-
-  const details = (id) => {
-    navigate(`/${id}`);
-  }
-
-  const doctors = useSelector((state) => state.doctors.doctorsList);
 
   return (
     <ul className="carousel">

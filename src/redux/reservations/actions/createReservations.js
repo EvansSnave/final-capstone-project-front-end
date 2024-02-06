@@ -8,6 +8,7 @@ const createReservations = createAsyncThunk('reservations/createReservations',
         user_id: id,
         doctor_id: data.doctorId,
         schedule_date: data.scheduleDate,
+        city_id: data.cityId
       },
     };
     const response = await axios.post('http://localhost:4000/reservations', body);

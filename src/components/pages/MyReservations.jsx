@@ -30,6 +30,10 @@ const MyReservations = ({ id }) => {
                     {reservation.doctorId}
                   </p>
                   <p className="reservation__data">
+                    City id:
+                    {reservation.cityId}
+                  </p>
+                  <p className="reservation__data">
                     Reservation id:
                     {reservation.id}
                   </p>

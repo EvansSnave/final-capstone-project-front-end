@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signupUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
+import axios from 'axios';
 
 const SignupForm = () => {
   const {
@@ -9,6 +10,15 @@ const SignupForm = () => {
   } = useForm();
 
   const dispatch = useDispatch();
+
+  const emailExists = async (data) => {
+    const users = await axios.get('http://localhost:4000/users');
+    const email = users.data.find((user) => user.email === data);
+    if (email) {
+      return false
+    }
+    return true
+  }
 
   const password = watch('password');
 
@@ -47,9 +57,11 @@ const SignupForm = () => {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: 'Invalid email',
             },
+            validate: emailExists
           })}
         />
         {errors.email && (<p className="login__errors">{errors.email.message}</p>)}
+        {errors.email?.type === 'validate' && (<p className="login__errors">Email already exists</p>)}
       </div>
 
       <div className="login__control">

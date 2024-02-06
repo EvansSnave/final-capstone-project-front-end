@@ -61,6 +61,21 @@ const CreateReservations = ({ id }) => {
         </div>
 
         <div className="reserve__control">
+          <label className="reserve__label">CIty id</label>
+          <input
+            placeholder="City id"
+            className="reserve__input"
+            type="number"
+            name="cityId"
+            {...register('cityId', {
+              required: 'City id is required', min: { value: 1, message: 'City id does must be greater than 0' },
+              max: { value: 4, message: 'City id does not exist' }
+            })}
+          />
+          {errors.cityId && (<p className="errors">{errors.cityId.message}</p>)}
+        </div>
+
+        <div className="reserve__control">
           <label className="reserve__label">Schedule date</label>
           <input
             placeholder="Schedule date"
