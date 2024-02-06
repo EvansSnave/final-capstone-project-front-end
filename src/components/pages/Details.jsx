@@ -2,18 +2,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 import detailsDoctors from "../../redux/doctors/actions/detailsDoctors";
-import logo from '../../assets/reference.jpg'
 
 const Details = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const details = useSelector((state) => state.doctors.details);
+  const doctors = useSelector((state) => state.doctors.doctorsList);
   let { id } = useParams();
 
   useEffect(() => {
     dispatch(detailsDoctors(id))
+    dispatch(listOfDoctors())
   }, [dispatch, id]);
+
+  const doctor = doctors.find((doctor) => doctor.id == id);
 
   const reserve = () => {
     navigate('/reserve');
@@ -27,7 +31,7 @@ const Details = () => {
     <div className='details'>
       <button className="details__arrow" onClick={back}>{'<'}</button>
       <div className='details__image-container'>
-        <img src={logo} alt='doctor face' className='details__image'/>
+        <img src={`http://localhost:4000${doctor.imageUrl}`} alt='doctor face' className='details__image'/>
       </div>
       <div className='details__container'>
         <h1 className='details__title'>DOCTOR DETAILS</h1>

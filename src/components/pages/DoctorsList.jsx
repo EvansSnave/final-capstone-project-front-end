@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
-import logo from '../../assets/reference.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const DoctorsList = () => {

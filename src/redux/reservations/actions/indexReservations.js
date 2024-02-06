@@ -7,7 +7,7 @@ const findDoctorById = (doctors, doctorId) => {
 };
 
 const listOfReservations = createAsyncThunk('reservations/listOfReservations', async (id, { dispatch, getState }) => {
-  // Dispatch the listOfDoctors action to ensure the doctors list is available
+
   await dispatch(listOfDoctors());
 
   const state = getState();

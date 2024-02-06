@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import listOfReservations from '../../redux/reservations/actions/indexReservations';
 import deleteReservations from '../../redux/reservations/actions/deleteReservations';
-import doctor from '../../assets/reference.jpg';
 import trash from '../../assets/trash-can.png';
 
 const MyReservations = ({ id }) => {
