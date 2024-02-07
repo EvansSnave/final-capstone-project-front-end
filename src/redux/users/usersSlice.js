@@ -27,7 +27,6 @@ export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
   };
 
   const response = await axios.post('http://localhost:4000/signup', body);
-  localStorage.setItem('tokenAuth', response.headers.authorization);
   return response.data;
 });
 
@@ -81,8 +80,8 @@ const usersSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.info = action.payload;
       })
-      .addCase(signupUser.fulfilled, (state, action) => {
-        state.info = action.payload;
+      .addCase(signupUser.fulfilled, (state) => {
+        state.info = false;
       });
   },
 });

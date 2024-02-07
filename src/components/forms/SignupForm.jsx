@@ -1,13 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { signupUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
 import axios from 'axios';
 
 const SignupForm = () => {
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, watch, formState: { errors }, reset,
   } = useForm();
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -24,6 +26,13 @@ const SignupForm = () => {
 
   const onSubmit = (data) => {
     dispatch(signupUser(data));
+    setIsSuccess(true);
+
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 3000);
+
+    reset();
   };
 
   return (
@@ -95,6 +104,7 @@ const SignupForm = () => {
 
       <div className="login__control">
         <button className="login__button" type="submit">Sign up</button>
+        {isSuccess && (<div className="success">Account created successfully</div>)}
       </div>
       <p className="login__to-sign-up">Do you have an account?</p>
     </form>

@@ -10,7 +10,7 @@ const Authorization = () => {
 
   useEffect(() => {
     dispatch(currentUser());
-  }, [dispatch]);
+  }, [dispatch, authorized]);
 
   if (authorized) {
     return <Home loggedIn id={userId} />;
