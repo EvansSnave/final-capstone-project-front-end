@@ -20,7 +20,8 @@
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "linebreak-style": ["error", "windows"]
   },
   "overrides": [
     {
