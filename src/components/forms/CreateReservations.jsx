@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 import createReservations from '../../redux/reservations/actions/createReservations';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 import bg from '../../assets/doctor-room-two.jpg';
@@ -29,7 +30,7 @@ const CreateReservations = ({ id }) => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, []);
+  }, [dispatch]);
 
   const isFutureDate = (value) => {
     const currentDate = new Date();
@@ -45,48 +46,61 @@ const CreateReservations = ({ id }) => {
         <div className="reserve__separator" />
         {isSuccess && (<div className="success">Reservation submitted successfully.</div>)}
         <div className="reserve__control">
-          <label className="reserve__label">Doctor id</label>
-          <input
-            className="reserve__input input__number"
-            type="number"
-            name="doctorId"
-            {...register('doctorId', {
-              required: 'Doctor id is required',
-              min: { value: 1, message: 'Doctor id must be greater than 0' },
-              validate: doctorExist,
-            })}
-          />
+          <label className="reserve__label" htmlFor="doctorId">
+            Doctor id
+            {' '}
+            <br />
+            <input
+              className="reserve__input input__number"
+              type="number"
+              name="doctorId"
+              {...register('doctorId', {
+                required: 'Doctor id is required',
+                min: { value: 1, message: 'Doctor id must be greater than 0' },
+                validate: doctorExist,
+              })}
+            />
+          </label>
+
           {errors.doctorId && (<p className="errors">{errors.doctorId.message}</p>)}
           {errors.doctorId?.type === 'validate' && (<p className="errors">Doctor id does not exist</p>)}
         </div>
 
         <div className="reserve__control">
-          <label className="reserve__label">CIty id</label>
-          <input
-            placeholder="City id"
-            className="reserve__input"
-            type="number"
-            name="cityId"
-            {...register('cityId', {
-              required: 'City id is required',
-              min: { value: 1, message: 'City id does must be greater than 0' },
-              max: { value: 4, message: 'City id does not exist' },
-            })}
-          />
+          <label className="reserve__label" htmlFor="cityId">
+            City id
+            {' '}
+            <br />
+            <input
+              placeholder="City id"
+              className="reserve__input"
+              type="number"
+              name="cityId"
+              {...register('cityId', {
+                required: 'City id is required',
+                min: { value: 1, message: 'City id does must be greater than 0' },
+                max: { value: 4, message: 'City id does not exist' },
+              })}
+            />
+          </label>
           {errors.cityId && (<p className="errors">{errors.cityId.message}</p>)}
         </div>
 
         <div className="reserve__control">
-          <label className="reserve__label">Schedule date</label>
-          <input
-            placeholder="Schedule date"
-            className="reserve__input"
-            type="date"
-            name="scheduleDate"
-            {...register('scheduleDate', {
-              required: true, validate: isFutureDate,
-            })}
-          />
+          <label className="reserve__label" htmlFor="scheduleDate">
+            Schedule date
+            {' '}
+            <br />
+            <input
+              placeholder="Schedule date"
+              className="reserve__input"
+              type="date"
+              name="scheduleDate"
+              {...register('scheduleDate', {
+                required: true, validate: isFutureDate,
+              })}
+            />
+          </label>
           {errors.scheduleDate?.type === 'required' && (<p className="errors">Schedule date is required</p>)}
           {errors.scheduleDate?.type === 'validate' && (<p className="errors">Schedule date must be in the future</p>)}
         </div>
@@ -95,6 +109,10 @@ const CreateReservations = ({ id }) => {
       </form>
     </div>
   );
+};
+
+CreateReservations.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default CreateReservations;

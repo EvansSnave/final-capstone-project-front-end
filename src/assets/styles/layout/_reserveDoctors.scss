@@ -48,7 +48,7 @@
     @extend %flex-parent;
 
     .reserve__label {
-      margin-right: 10px;
+      @extend %flex-parent;
     }
 
     .input__number {

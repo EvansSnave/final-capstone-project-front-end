@@ -17,7 +17,7 @@ const LoginForm = () => {
     const { name } = data;
     const { email } = data;
     const users = info.data;
-    const exists = users.find((user) => user.name == name && user.email == email);
+    const exists = users.find((user) => user.name === name && user.email === email);
     setUser(exists !== undefined);
     setDataToSubmit(data);
   };

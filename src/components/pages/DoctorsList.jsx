@@ -13,7 +13,7 @@ const DoctorsList = () => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, []);
+  }, [dispatch]);
 
   const details = (id) => {
     navigate(`/${id}`);
@@ -64,12 +64,22 @@ const DoctorsList = () => {
                 ...............................................
               </div>
             </div>
-            <button className="carousel__arrow_prev arrow" onClick={sliderRef?.slickPrev}>{'<'}</button>
+            <button type="button" className="carousel__arrow_prev arrow" onClick={sliderRef?.slickPrev}>{'<'}</button>
             <Slider className="carousel__slides" ref={setSliderRef} {...settings}>
               {doctors.map((doctor) => (
-                <li className="carousel__slide-container">
-                  <div className="carousel__img_container">
-                    <img onClick={() => details(doctor.id)} src={`http://localhost:4000${doctor.imageUrl}`} alt="Doctors face" className="carousel__image" />
+                <li className="carousel__slide-container" key={doctor.id}>
+                  <div
+                    className="carousel__img_container"
+                    onClick={() => details(doctor.id)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        details(doctor.id);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <img src={`http://localhost:4000${doctor.imageUrl}`} alt="Doctors face" className="carousel__image" />
                   </div>
                   <div className="carousel__details">
                     <p className="carousel__name">{doctor.name}</p>
@@ -80,22 +90,22 @@ const DoctorsList = () => {
                     <div className="carousel__info">
                       <p className="carousel__data">
                         Doctor id:
-                  {doctor.id}
+                        {doctor.id}
                       </p>
                       <p className="carousel__data">
                         City id:
-                  {doctor.cityId}
+                        {doctor.cityId}
                       </p>
                       <p className="carousel__data">
                         Age:
-                  {doctor.age}
+                        {doctor.age}
                       </p>
                     </div>
                   </div>
                 </li>
               ))}
             </Slider>
-            <button className="carousel__arrow_next arrow" onClick={sliderRef?.slickNext}>{'>'}</button>
+            <button type="button" className="carousel__arrow_next arrow" onClick={sliderRef?.slickNext}>{'>'}</button>
           </>
         )
         : <div className="empty">There are not doctors yet</div>}

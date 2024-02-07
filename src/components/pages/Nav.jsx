@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@uidotdev/usehooks';
@@ -35,15 +36,31 @@ const Nav = () => {
   return (
     <>
       {smallScreen && isMenuVisible && (
-      <div className="navigator__overlay" onClick={handleOverlayClick} />
+      <div
+        className="navigator__overlay"
+        onClick={handleOverlayClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleOverlayClick();
+          }
+        }}
+        role="button"
+        tabIndex={0}
+      />
       )}
       {smallScreen && (
-      <img
-        className={`burger${isMenuVisible ? ' invisible' : ''}`}
-        alt="nav icon"
-        src={burger}
-        onClick={handleBurgerClick}
-      />
+        <div
+          onClick={handleBurgerClick}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleBurgerClick();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+        >
+          <img className={`burger${isMenuVisible ? ' invisible' : ''}`} alt="nav icon" src={burger} />
+        </div>
       )}
       <nav className={`navigator${isMenuVisible ? ' visible' : ''}`}>
         <img className="navigator__img" alt="page icon" src={logo} />
@@ -53,7 +70,7 @@ const Nav = () => {
           <NavLink className="navigator__list-link" to="/myreservations">MY RESERVATIONS</NavLink>
           <NavLink className="navigator__list-link" to="/createdoctors">ADD A DOCTOR</NavLink>
           <NavLink className="navigator__list-link" to="/deletedoctor">DELETE A DOCTOR</NavLink>
-          <button className="navigator__list-link" onClick={handleLogOut}>LOGOUT</button>
+          <button type="button" className="navigator__list-link" onClick={handleLogOut}>LOGOUT</button>
         </ul>
       </nav>
     </>

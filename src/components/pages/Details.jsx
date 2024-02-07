@@ -17,7 +17,7 @@ const Details = () => {
     dispatch(detailsDoctors(id));
   }, [dispatch, id]);
 
-  const doctor = doctors.find((doctor) => doctor && doctor.id == id);
+  const doctor = doctors.find((doctor) => doctor && doctor.id === Number(id));
 
   if (!doctor) {
     return <div>Loading...</div>;
@@ -33,7 +33,7 @@ const Details = () => {
 
   return (
     <div className="details">
-      <button className="details__arrow" onClick={back}>{'<'}</button>
+      <button type="button" className="details__arrow" onClick={back}>{'<'}</button>
       <div className="details__image-container">
         <img src={`http://localhost:4000${doctor.imageUrl}`} alt="doctor face" className="details__image" />
       </div>
@@ -57,7 +57,7 @@ const Details = () => {
             <div className="details__info">{details.studies}</div>
           </li>
         </ul>
-        <button onClick={reserve} className="details__button">RESERVE</button>
+        <button type="button" onClick={reserve} className="details__button">RESERVE</button>
       </div>
     </div>
   );
