@@ -8,7 +8,7 @@ const initialState = {
   doctorsList: [],
   message: 'ok',
   details: {},
-  images: []
+  images: [],
 };
 
 const doctorsSlice = createSlice({

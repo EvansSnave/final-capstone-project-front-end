@@ -1,29 +1,29 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../../redux/users/usersSlice';
-import logo from '../../assets/doc-no-bg.png';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { loginUser } from '../../redux/users/usersSlice';
+import logo from '../../assets/doc-no-bg.png';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [user, setUser] = useState(true);
-  const [dataToSubmit, setDataToSubmit] = useState(null); 
+  const [dataToSubmit, setDataToSubmit] = useState(null);
 
   const dispatch = useDispatch();
 
   const userExists = async (data) => {
     const info = await axios.get('http://localhost:4000/users');
-    const name = data.name;
-    const email = data.email;
+    const { name } = data;
+    const { email } = data;
     const users = info.data;
     const exists = users.find((user) => user.name == name && user.email == email);
     setUser(exists !== undefined);
     setDataToSubmit(data);
-  }
+  };
 
   const onSubmit = (data) => {
-    userExists(data)
+    userExists(data);
   };
 
   useEffect(() => {

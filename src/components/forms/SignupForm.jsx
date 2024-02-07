@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import axios from 'axios';
 import { signupUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
-import axios from 'axios';
 
 const SignupForm = () => {
   const {
@@ -17,10 +17,10 @@ const SignupForm = () => {
     const users = await axios.get('http://localhost:4000/users');
     const email = users.data.find((user) => user.email === data);
     if (email) {
-      return false
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
   const password = watch('password');
 
@@ -66,7 +66,7 @@ const SignupForm = () => {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: 'Invalid email',
             },
-            validate: emailExists
+            validate: emailExists,
           })}
         />
         {errors.email && (<p className="login__errors">{errors.email.message}</p>)}

@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import createDoctors from '../../redux/doctors/actions/createDoctors';
 import axios from 'axios';
+import createDoctors from '../../redux/doctors/actions/createDoctors';
 
 const CreateDoctors = () => {
   const {
@@ -19,7 +19,7 @@ const CreateDoctors = () => {
       return true;
     }
     return false;
-  }
+  };
 
   const onSubmit = (data) => {
     dispatch(createDoctors(data));
@@ -36,7 +36,7 @@ const CreateDoctors = () => {
   return (
     <div className="doctor__cont">
       <form className="doctor" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className='doctor__title'>ADD A DOCTOR</h1>
+        <h1 className="doctor__title">ADD A DOCTOR</h1>
         {isSuccess && (<div className="success">Doctor added successfully.</div>)}
         <div className="doctor__control">
           <input
@@ -88,8 +88,9 @@ const CreateDoctors = () => {
             type="number"
             name="userId"
             {...register('userId', {
-              required: 'User id is required', min: { value: 1, message: 'User id must be greater than 0' },
-              validate: checkUserId
+              required: 'User id is required',
+              min: { value: 1, message: 'User id must be greater than 0' },
+              validate: checkUserId,
             })}
           />
           {errors.userId && (<p className="errors">{errors.userId.message}</p>)}

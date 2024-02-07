@@ -10,10 +10,11 @@
   box-sizing: border-box;
   border-radius: 0;
   background-color: transparent;
-  font-family: 'Main';
+  font-family: 'Main', sans-serif;
   font-size: medium;
   font-weight: 300;
   overflow-x: hidden;
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;

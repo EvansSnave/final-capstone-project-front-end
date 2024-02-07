@@ -31,28 +31,28 @@ const DeleteDoctors = () => {
   };
 
   return (
-    <div className='doctor__cont delete'>
-      <form className='doctor' onSubmit={handleSubmit(onSubmit)}>
-      <h1 className='doctor__title'>DELETE DOCTOR</h1>
-      {isSuccess && (<div className='success'>Doctor deleted successfully.</div>)}
-      <div className="doctor__control delete__control">
-        <input
-          placeholder='Doctor id'
-          className='doctor__input input_delete'
-          type="number"
-          name="id"
-          {...register('id', {
-            required: 'Doctor id is required',
-            min: { value: 1, message: 'Doctor id must be greater than 0' },
-            validate: doctorExist,
-          })}
-        />
-        {errors.id && (<p className="errors">{errors.id.message}</p>)}
-        {errors.id?.type === 'validate' && (<p className="errors">Doctor id does not exist</p>)}
-      </div>
+    <div className="doctor__cont delete">
+      <form className="doctor" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="doctor__title">DELETE DOCTOR</h1>
+        {isSuccess && (<div className="success">Doctor deleted successfully.</div>)}
+        <div className="doctor__control delete__control">
+          <input
+            placeholder="Doctor id"
+            className="doctor__input input_delete"
+            type="number"
+            name="id"
+            {...register('id', {
+              required: 'Doctor id is required',
+              min: { value: 1, message: 'Doctor id must be greater than 0' },
+              validate: doctorExist,
+            })}
+          />
+          {errors.id && (<p className="errors">{errors.id.message}</p>)}
+          {errors.id?.type === 'validate' && (<p className="errors">Doctor id does not exist</p>)}
+        </div>
 
-      <button className='doctor__button' type="submit">Delete Doctor</button>
-    </form>
+        <button className="doctor__button" type="submit">Delete Doctor</button>
+      </form>
     </div>
   );
 };

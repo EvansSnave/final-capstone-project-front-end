@@ -19,8 +19,8 @@ const MyReservations = ({ id }) => {
   return (
     <div className="reservation">
       <ul className="reservation__list">
-        {reservations.length > 0 ? 
-          reservations.map((reservation) => (
+        {reservations.length > 0
+          ? reservations.map((reservation) => (
             <>
               <div className="reservation__container" key={reservation.id}>
                 <img className="reservation__image" alt="Doctor photo" src={reservation.doctorImage} />
@@ -52,9 +52,7 @@ const MyReservations = ({ id }) => {
               </div>
             </>
           ))
-          :
-          <div className='empty'>There are not reservations yet</div>
-        }
+          : <div className="empty">There are not reservations yet</div>}
       </ul>
     </div>
   );

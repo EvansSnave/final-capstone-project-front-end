@@ -68,8 +68,9 @@ const CreateReservations = ({ id }) => {
             type="number"
             name="cityId"
             {...register('cityId', {
-              required: 'City id is required', min: { value: 1, message: 'City id does must be greater than 0' },
-              max: { value: 4, message: 'City id does not exist' }
+              required: 'City id is required',
+              min: { value: 1, message: 'City id does must be greater than 0' },
+              max: { value: 4, message: 'City id does not exist' },
             })}
           />
           {errors.cityId && (<p className="errors">{errors.cityId.message}</p>)}

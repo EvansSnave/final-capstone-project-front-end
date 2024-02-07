@@ -19,7 +19,9 @@
   width: 100%;
   z-index: 20;
   height: 100vh;
+
   @extend %flex-parent;
+
   padding-bottom: 75px;
   position: relative;
 
@@ -29,7 +31,7 @@
     text-align: center;
   }
 
-  & > *, 
+  & > *,
   .reserve__label,
   .reserve__button,
   .reserve__input {
@@ -42,6 +44,7 @@
 
   .reserve__control {
     margin-bottom: 15px;
+
     @extend %flex-parent;
 
     .reserve__label {
@@ -67,12 +70,14 @@
     border-radius: 15px;
     padding: 10px;
     transition: all 0.2s;
+
     &:hover {
       transform: scale(1.1);
       background-color: $reservation-bg;
       color: $input_bg;
       border: $input_bg solid 1px;
     }
+
     &:focus {
       background-color: $input_bg;
       color: $reservation-bg;
