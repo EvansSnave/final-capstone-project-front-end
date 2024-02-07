@@ -2,15 +2,35 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [user, setUser] = useState(true);
+  const [dataToSubmit, setDataToSubmit] = useState(null); 
 
   const dispatch = useDispatch();
 
+  const userExists = async (data) => {
+    const info = await axios.get('http://localhost:4000/users');
+    const name = data.name;
+    const email = data.email;
+    const users = info.data;
+    const exists = users.find((user) => user.name == name && user.email == email);
+    setUser(exists !== undefined);
+    setDataToSubmit(data);
+  }
+
   const onSubmit = (data) => {
-    dispatch(loginUser(data));
+    userExists(data)
   };
+
+  useEffect(() => {
+    if (user && dataToSubmit) {
+      dispatch(loginUser(dataToSubmit));
+    }
+  }, [user, dataToSubmit, dispatch]);
 
   return (
     <form className="login" onSubmit={handleSubmit(onSubmit)}>
@@ -65,6 +85,7 @@ const LoginForm = () => {
 
       <div className="login__control">
         <button className="login__button" type="submit">Login</button>
+        {user === false && (<p className="login__errors">Invalid email or password</p>)}
       </div>
       <p className="login__to-sign-up">Need an account?</p>
     </form>
