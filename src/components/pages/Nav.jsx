@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from '@uidotdev/usehooks';
@@ -32,7 +31,7 @@ const Nav = () => {
       setIsMenuVisible(false);
     }
   }, [bigScreen]);
-
+  /* eslint-disable jsx-a11y/control-has-associated-label */
   return (
     <>
       {smallScreen && isMenuVisible && (
