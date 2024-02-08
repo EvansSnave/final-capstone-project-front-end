@@ -11,16 +11,15 @@ const Nav = () => {
 
   return (
     <nav>
-      <img alt="logo" />
       <ul>
         <li>
           <NavLink to="/">DOCTORS</NavLink>
         </li>
         <li>
-          <NavLink to="#">RESERVE A DOCTOR</NavLink>
+          <NavLink to="/reserve">RESERVE A DOCTOR</NavLink>
         </li>
         <li>
-          <NavLink to="#">MY RESERVATIONS</NavLink>
+          <NavLink to="/myreservations">MY RESERVATIONS</NavLink>
         </li>
         <li>
           <NavLink to="#">ADD A DOCTOR</NavLink>
