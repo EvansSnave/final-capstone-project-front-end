@@ -26,7 +26,7 @@ const CreateDoctors = () => {
   return (
     <div className="doctor__cont">
       <form className="doctor" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className='doctor__title'>ADD A DOCTOR</h1>
+        <h1 className="doctor__title">ADD A DOCTOR</h1>
         {isSuccess && (<div className="success">Doctor added successfully.</div>)}
         <div className="doctor__control">
           <input

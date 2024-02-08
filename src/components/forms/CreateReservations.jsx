@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 import createReservations from '../../redux/reservations/actions/createReservations';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 import bg from '../../assets/doctor-room-two.jpg';
@@ -29,7 +30,7 @@ const CreateReservations = ({ id }) => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, []);
+  }, [dispatch]);
 
   const isFutureDate = (value) => {
     const currentDate = new Date();
@@ -79,6 +80,10 @@ const CreateReservations = ({ id }) => {
       </form>
     </div>
   );
+};
+
+CreateReservations.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default CreateReservations;

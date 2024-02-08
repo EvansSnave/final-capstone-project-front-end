@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import MyReservations from '../pages/MyReservations';
 import DoctorsList from '../pages/DoctorsList';
 import CreateReservations from '../forms/CreateReservations';
@@ -16,5 +17,9 @@ const RoutesApp = ({ id }) => (
     <Route path="/:id" element={<Details />} />
   </Routes>
 );
+
+RoutesApp.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default RoutesApp;

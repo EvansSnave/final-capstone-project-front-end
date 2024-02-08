@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useNavigate } from 'react-router-dom';
 import listOfDoctors from '../../redux/doctors/actions/listOfDoctors';
 import logo from '../../assets/reference.jpg';
-import { useNavigate } from 'react-router-dom';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const DoctorsList = () => {
 
   useEffect(() => {
     dispatch(listOfDoctors());
-  }, []);
+  }, [dispatch]);
 
   const settings = {
     dots: false,
@@ -43,13 +43,13 @@ const DoctorsList = () => {
         settings: {
           slidesToShow: 2,
         },
-      }
-    ]
+      },
+    ],
   };
 
   const details = (id) => {
     navigate(`/${id}`);
-  }
+  };
 
   const doctors = useSelector((state) => state.doctors.doctorsList);
   return (
@@ -61,10 +61,10 @@ const DoctorsList = () => {
           ...............................................
         </div>
       </div>
-      <button className="carousel__arrow_prev arrow" onClick={sliderRef?.slickPrev}>{'<'}</button>
+      <button type="button" className="carousel__arrow_prev arrow" onClick={sliderRef?.slickPrev}>{'<'}</button>
       <Slider className="carousel__slides" ref={setSliderRef} {...settings}>
         {doctors.map((doctor) => (
-          <li className="carousel__slide-container">
+          <li className="carousel__slide-container" key={doctor.id}>
             <div className="carousel__img_container">
               <img onClick={() => details(doctor.id)} src={logo} alt="Doctors face" className="carousel__image" />
             </div>
@@ -92,7 +92,7 @@ const DoctorsList = () => {
           </li>
         ))}
       </Slider>
-      <button className="carousel__arrow_next arrow" onClick={sliderRef?.slickNext}>{'>'}</button>
+      <button type="button" className="carousel__arrow_next arrow" onClick={sliderRef?.slickNext}>{'>'}</button>
     </ul>
   );
 };

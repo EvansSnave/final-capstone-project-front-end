@@ -10,7 +10,7 @@ const Forms = () => {
       <img className="main__image" alt="Doctor room" src={background} />
       <div className="main__forms-container">
         {login ? <LoginForm /> : <SignupForm />}
-        <button className="main-form__button_out" onClick={() => setLogin(!login)}>
+        <button type="button" className="main-form__button_out" onClick={() => setLogin(!login)}>
           {login ? 'Sign up' : 'Log in'}
         </button>
       </div>

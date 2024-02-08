@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import listOfReservations from '../../redux/reservations/actions/indexReservations';
 import deleteReservations from '../../redux/reservations/actions/deleteReservations';
 import doctor from '../../assets/reference.jpg';
@@ -11,7 +12,7 @@ const MyReservations = ({ id }) => {
 
   useEffect(() => {
     dispatch(listOfReservations(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const handleDelete = (reserveId) => {
     dispatch(deleteReservations(reserveId));
@@ -23,7 +24,7 @@ const MyReservations = ({ id }) => {
         {reservations.map((reservation) => (
           <>
             <div className="reservation__container" key={reservation.id}>
-              <img className="reservation__image" alt="Doctor photo" src={doctor} />
+              <img className="reservation__image" alt="Doctor face" src={doctor} />
               <li className="reservation__item">
                 <p className="reservation__data">
                   Doctor id:
@@ -51,6 +52,10 @@ const MyReservations = ({ id }) => {
       </ul>
     </div>
   );
+};
+
+MyReservations.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default MyReservations;

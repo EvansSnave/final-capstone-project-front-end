@@ -1,7 +1,9 @@
 .doctor__cont {
   width: 90%;
   background: linear-gradient(#b1e7a6, #e74a4a);
+
   @extend %flex-parent;
+
   .doctor {
     @extend %flex-parent;
 
@@ -11,6 +13,7 @@
 
     &__title {
       @extend %title-font;
+
       margin: 10px 10px;
       text-align: center;
     }
@@ -28,13 +31,14 @@
       border-radius: 20px;
       height: 110px;
       overflow-y: scroll;
+
       &::-webkit-scrollbar {
         display: none;
       }
     }
 
     &__button {
-      @extend %button-out; 
-     }
+      @extend %button-out;
+    }
   }
 }

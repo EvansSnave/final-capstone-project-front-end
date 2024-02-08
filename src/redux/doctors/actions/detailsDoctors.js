@@ -8,7 +8,7 @@ const detailsDoctors = createAsyncThunk('doctors/detailsDoctors', async (id) => 
     id: detail.id,
     price: detail.price,
     specialization: detail.specialization,
-    studies: detail.studies
+    studies: detail.studies,
   };
 });
 

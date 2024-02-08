@@ -27,6 +27,7 @@
     height: 500px;
     border-radius: 30px;
     transition: all 0.2s;
+
     &:hover {
       transform: scale(1.1);
     }
@@ -54,6 +55,7 @@
 
   &__title {
     @extend %title-font;
+
     text-align: end;
     font-weight: 700;
   }
@@ -106,6 +108,7 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     transition: all 0.2s;
+
     &:hover {
       background-color: $description;
       color: $main__form-button_out;
@@ -120,6 +123,7 @@
     background-color: $main__form-button_out;
     border: 1px $main__form-button_out solid;
     transition: all 0.2s;
+
     &:hover {
       background-color: $description;
       color: $main__form-button_out;
