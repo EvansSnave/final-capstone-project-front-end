@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { loginUser } from '../../redux/users/usersSlice';
 
 const LoginForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const dispatch = useDispatch();
 
