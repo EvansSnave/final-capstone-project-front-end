@@ -1,6 +1,6 @@
 <div align="center">
 
-![MOCKUP]()
+![MOCKUP](./frontend.png)
 
 <a name="readme-top"></a>
 
