@@ -1,22 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { currentUser } from './redux/users/usersSlice';
-import Home from './components/pages/Home';
 
 const Authorization = () => {
   const authorized = useSelector((state) => state.users.info);
-  const userId = useSelector((state) => state.users.id);
+  const [isLoggedIn, setIsLoggedIn] = useState(authorized);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(currentUser());
-  }, [dispatch, authorized]);
+    if (authorized) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [authorized, dispatch]);
 
-  if (authorized) {
-    return <Home loggedIn id={userId} />;
-  }
-
-  return <Home loggedIn={false} id={null} />;
+  return (
+    <>
+      {isLoggedIn
+        ? <Navigate to="/" />
+        : <Navigate to="/login" />}
+    </>
+  );
 };
 
 export default Authorization;
