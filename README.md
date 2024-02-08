@@ -1,5 +1,6 @@
 <div align="center">
-
+<h1>Mockup</h1>
+  
 ![MOCKUP](./frontend.png)
 
 <a name="readme-top"></a>
@@ -12,19 +13,16 @@
 
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 Final Capstone Front End ](#-final-capstone-front-end-)
-  - [🛠 ER Diagram ](#-er-diagram-)
   - [💻 Link to Back End ](#-link-to-back-end-)
   - [💻 Link to Kanban board information ](#-link-to-kanban-board-information-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo](#live-demo)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-    - [Run tests](#run-tests)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -76,12 +74,6 @@ This project was completed by three Team members:
 
 <p align="right"\>(<a href="#readme-top"\>back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link]()
-
-<p align="right"\>(<a href="#readme-top"\>back to top</a>)</p>
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
@@ -117,34 +109,6 @@ To run the project, execute the following command:
 npm run dev
 ```
 
-### Run tests <a name="tests"></a>
-To run the frontend tests, follow these steps:
-
-### Prerequisites
-
-Before running the tests, ensure you have the following installed:
-
-- Node.js: You need Node.js to execute the test scripts.
-- npm: npm is used to manage packages in your React project.
-
-Additionally, make sure you have installed the following testing extensions:
-
-- jest-fetch-mock: Used for mocking fetch requests.
-- redux-mock-store: Used for mocking Redux store.
-- redux-thunk: Used for testing Redux thunks.
-
-### Running Tests
-
-Execute the following command to run the tests:
-
-```bash
-npm run test
-```
-This command will run the test suites and provide you with the test results and coverage information.
-
-
-<p align="right"\>(<a href="#readme-top"\>back to top</a>)</p>
-
 ## 👥 Authors <a name="authors"></a>
 
 👤 **EvanSnave**
@@ -164,7 +128,7 @@ This command will run the test suites and provide you with the test results and 
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **User Authentication and Authorization**
-- [ ] **Integration with External APIs for Car Information**
+- [ ] **Integration with External APIs for Doctors Information**
 - [ ] **User Profile Management**
 
 <p align="right"\>(<a href="#readme-top"\>back to top</a>)</p>
