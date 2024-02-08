@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => (
   <nav>
-    <img />
+    <img alt="logo" />
     <ul>
       <li>
         <NavLink to="/">DOCTORS</NavLink>

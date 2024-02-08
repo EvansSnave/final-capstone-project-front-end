@@ -11,14 +11,14 @@ const IndexDoctors = () => {
 
   useEffect(() => {
     handleFetchDoctors();
-  }, [dispatch]);
+  });
 
   const doctors = useSelector((state) => state.doctors.list);
 
   return (
     <ul>
       {doctors.map((doctor) => (
-        <li>
+        <li key={doctor.id}>
           <p>{doctor.name}</p>
           <p>{doctor.age}</p>
           <p>{doctor.doctorId}</p>
