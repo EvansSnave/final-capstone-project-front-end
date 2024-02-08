@@ -11,7 +11,6 @@ const Nav = () => {
 
   return (
     <nav>
-      <img />
       <ul>
         <li>
           <NavLink to="/">DOCTORS</NavLink>
@@ -29,7 +28,7 @@ const Nav = () => {
           <NavLink to="#">DELETE A DOCTOR</NavLink>
         </li>
         <li>
-          <button onClick={handleLogOut}>LOGOUT</button>
+          <button type="button" onClick={handleLogOut}>LOGOUT</button>
         </li>
       </ul>
     </nav>

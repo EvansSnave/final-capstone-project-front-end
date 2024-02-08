@@ -15,7 +15,7 @@ const Authorization = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, [authorized]);
+  }, [authorized, dispatch]);
 
   return (
     <>
