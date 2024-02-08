@@ -1,21 +1,25 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../../redux/users/usersSlice';
+import { signupUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
 
-const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+const SignupForm = () => {
+  const {
+    register, handleSubmit, watch, formState: { errors },
+  } = useForm();
 
   const dispatch = useDispatch();
 
+  const password = watch('password');
+
   const onSubmit = (data) => {
-    dispatch(loginUser(data));
+    dispatch(signupUser(data));
   };
 
   return (
     <form className="login" onSubmit={handleSubmit(onSubmit)}>
       <img className="login__logo" alt="page logo" src={logo} />
-      <h1 className="login__title">LOGIN</h1>
+      <h1 className="login__title">SIGNUP</h1>
       <div className="login__control">
         <input
           placeholder="Name"
@@ -64,11 +68,25 @@ const LoginForm = () => {
       </div>
 
       <div className="login__control">
-        <button className="login__button" type="submit">Login</button>
+        <input
+          placeholder="Password confirmation"
+          className="login__input"
+          type="password"
+          name="passwordConfirmation"
+          {...register('passwordConfirmation', {
+            required: 'Password confirmation is required',
+            validate: (value) => value === password || 'Password confirmation and password do not match',
+          })}
+        />
+        {errors.passwordConfirmation && (<p className="login__errors">{errors.passwordConfirmation.message}</p>)}
       </div>
-      <p className="login__to-sign-up">Need an account?</p>
+
+      <div className="login__control">
+        <button className="login__button" type="submit">Sign up</button>
+      </div>
+      <p className="login__to-sign-up">Do you have an account?</p>
     </form>
   );
 };
 
-export default LoginForm;
+export default SignupForm;

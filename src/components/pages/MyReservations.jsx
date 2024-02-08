@@ -1,28 +1,61 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import listOfReservations from '../../redux/reservations/actions/indexReservations';
+import deleteReservations from '../../redux/reservations/actions/deleteReservations';
+import doctor from '../../assets/reference.jpg';
+import trash from '../../assets/trash-can.png';
 
-const MyReservations = () => {
+const MyReservations = ({ id }) => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(listOfReservations(7));
-  }, [dispatch]);
-
   const reservations = useSelector((state) => state.reservations.list);
 
+  useEffect(() => {
+    dispatch(listOfReservations(id));
+  }, [dispatch, id]);
+
+  const handleDelete = (reserveId) => {
+    dispatch(deleteReservations(reserveId));
+  };
+
   return (
-    <ul>
-      {reservations.map((reservation) => (
-        <li key={reservation.id}>
-          <p>{reservation.id}</p>
-          <p>{reservation.user_id}</p>
-          <p>{reservation.doctor_id}</p>
-          <p>{reservation.schedule_date}</p>
-        </li>
-      ))}
-    </ul>
+    <div className="reservation">
+      <ul className="reservation__list">
+        {reservations.map((reservation) => (
+          <>
+            <div className="reservation__container" key={reservation.id}>
+              <img className="reservation__image" alt="Doctor face" src={doctor} />
+              <li className="reservation__item">
+                <p className="reservation__data">
+                  Doctor id:
+                  {reservation.doctorId}
+                </p>
+                <p className="reservation__data">
+                  Reservation id:
+                  {reservation.id}
+                </p>
+                <p className="reservation__data">
+                  Date:
+                  {reservation.scheduleDate}
+                </p>
+                <img
+                  className="reservation__trash"
+                  alt="trash icon"
+                  src={trash}
+                  onClick={() => handleDelete(reservation.id)}
+                />
+              </li>
+              <div className="reservation__arrow" />
+            </div>
+          </>
+        ))}
+      </ul>
+    </div>
   );
+};
+
+MyReservations.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default MyReservations;
