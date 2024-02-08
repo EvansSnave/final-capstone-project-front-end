@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../redux/users/usersSlice';
-import logo from '../../assets/doc-no-bg.png';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,60 +12,23 @@ const LoginForm = () => {
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit(onSubmit)}>
-      <img className="login__logo" alt="page logo" src={logo} />
-      <h1 className="login__title">LOGIN</h1>
-      <div className="login__control">
-        <input
-          placeholder="Name"
-          className="login__input"
-          type="text"
-          name="name"
-          {...register('name', {
-            required: 'Name is required',
-            maxLength: { value: 80, message: 'Name must be 80 or less characters long' },
-          })}
-        />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-control">
+        <input type="text" name="name" {...register('name')} />
         {errors.name && (<p className="login__errors">{errors.name.message}</p>)}
       </div>
 
-      <div className="login__control">
-        <input
-          placeholder="Email"
-          className="login__input"
-          type="email"
-          name="email"
-          {...register('email', {
-            required: 'Email is required',
-            maxLength: { value: 255, message: 'Email must be 255 or less characters long' },
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: 'Invalid email',
-            },
-          })}
-        />
-        {errors.email && (<p className="login__errors">{errors.email.message}</p>)}
+      <div className="form-control">
+        <input type="email" name="email" {...register('email')} />
       </div>
 
-      <div className="login__control">
-        <input
-          placeholder="Password"
-          className="login__input"
-          type="password"
-          name="password"
-          {...register('password', {
-            required: 'Password is required',
-            minLength: { value: 6, message: 'Password must be at least 6 characters long' },
-            maxLength: { value: 40, message: 'Password cannot be more than 40 characters long' },
-          })}
-        />
-        {errors.password && (<p className="login__errors">{errors.password.message}</p>)}
+      <div className="form-control">
+        <input type="password" name="password" {...register('password')} />
       </div>
 
-      <div className="login__control">
-        <button className="login__button" type="submit">Login</button>
+      <div className="form-control">
+        <button type="submit">Login</button>
       </div>
-      <p className="login__to-sign-up">Need an account?</p>
     </form>
   );
 };
