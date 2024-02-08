@@ -1,0 +1,58 @@
+%flex-parent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%button-out {
+  background-color: $main__form-button_out;
+  padding: 10px;
+  margin: 5px;
+  color: $input_bg;
+  border-radius: 20px;
+  transition: all 0.2s;
+  border: $main__form-button_out solid 2px;
+
+  &:hover {
+    transform: scale(1.1);
+    color: $main__form-button_out;
+    background-color: $input_bg;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    background-color: $main__form-button_out;
+    color: $input_bg;
+  }
+}
+
+%increase-font {
+  color: $input_bg;
+  font-weight: 700;
+}
+
+%title-font {
+  font-family: 'Title', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+%arrows-down {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid;
+  position: absolute;
+  margin-left: 135px;
+  margin-bottom: 285px;
+}
+
+%arrows-up {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid;
+  position: absolute;
+  margin-left: 135px;
+  margin-top: 285px;
+}

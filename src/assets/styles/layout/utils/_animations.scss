@@ -1,0 +1,13 @@
+@keyframes move-to-the-side {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(60px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
