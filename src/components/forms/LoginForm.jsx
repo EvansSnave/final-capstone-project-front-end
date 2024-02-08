@@ -4,7 +4,7 @@ import { loginUser } from '../../redux/users/usersSlice';
 import logo from '../../assets/doc-no-bg.png';
 
 const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
 
