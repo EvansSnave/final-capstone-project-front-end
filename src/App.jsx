@@ -1,7 +1,9 @@
+import Authorization from './Authorization';
+
 function App() {
   return (
     <div className="App">
-      hello
+      <Authorization />
     </div>
   );
 }
