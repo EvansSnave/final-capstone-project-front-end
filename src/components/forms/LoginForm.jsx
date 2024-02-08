@@ -14,10 +14,9 @@ const LoginForm = () => {
 
   const userExists = async (data) => {
     const info = await axios.get('http://localhost:4000/users');
-    const { name } = data;
-    const { email } = data;
+    const { username } = data;
     const users = info.data;
-    const exists = users.find((user) => user.name === name && user.email === email);
+    const exists = users.find((user) => user.username === username);
     setUser(exists !== undefined);
     setDataToSubmit(data);
   };
@@ -36,36 +35,18 @@ const LoginForm = () => {
     <form className="login" onSubmit={handleSubmit(onSubmit)}>
       <img className="login__logo" alt="page logo" src={logo} />
       <h1 className="login__title">LOGIN</h1>
-      <div className="login__control">
-        <input
-          placeholder="Name"
-          className="login__input"
-          type="text"
-          name="name"
-          {...register('name', {
-            required: 'Name is required',
-            maxLength: { value: 80, message: 'Name must be 80 or less characters long' },
-          })}
-        />
-        {errors.name && (<p className="login__errors">{errors.name.message}</p>)}
-      </div>
 
       <div className="login__control">
         <input
-          placeholder="Email"
+          placeholder="Username"
           className="login__input"
-          type="email"
-          name="email"
-          {...register('email', {
-            required: 'Email is required',
-            maxLength: { value: 255, message: 'Email must be 255 or less characters long' },
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: 'Invalid email',
-            },
+          type="text"
+          name="username"
+          {...register('username', {
+            required: 'Username is required',
           })}
         />
-        {errors.email && (<p className="login__errors">{errors.email.message}</p>)}
+        {errors.username && (<p className="login__errors">{errors.username.message}</p>)}
       </div>
 
       <div className="login__control">

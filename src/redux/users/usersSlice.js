@@ -20,6 +20,7 @@ export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
   const body = {
     user: {
       name: data.name,
+      username: data.username,
       email: data.email,
       password: data.password,
       password_confirmation: data.password_confirmation,
@@ -33,8 +34,7 @@ export const signupUser = createAsyncThunk('users/signupUser', async (data) => {
 export const loginUser = createAsyncThunk('users/loginUser', async (data) => {
   const body = {
     user: {
-      name: data.name,
-      email: data.email,
+      username: data.username,
       password: data.password,
       authorized: true,
     },

@@ -13,10 +13,11 @@ const SignupForm = () => {
 
   const dispatch = useDispatch();
 
-  const emailExists = async (data) => {
+  const emailAndUsernameExists = async (data) => {
     const users = await axios.get('http://localhost:4000/users');
     const email = users.data.find((user) => user.email === data);
-    if (email) {
+    const username = users.data.find((user) => user.username === data);
+    if (email || username) {
       return false;
     }
     return true;
@@ -55,6 +56,21 @@ const SignupForm = () => {
 
       <div className="login__control">
         <input
+          placeholder="Username"
+          className="login__input"
+          type="text"
+          name="username"
+          {...register('username', {
+            required: 'Username is required',
+            validate: emailAndUsernameExists,
+          })}
+        />
+        {errors.username && (<p className="login__errors">{errors.username.message}</p>)}
+        {errors.username?.type === 'validate' && (<p className="login__errors">Username already exists</p>)}
+      </div>
+
+      <div className="login__control">
+        <input
           placeholder="Email"
           className="login__input"
           type="email"
@@ -66,7 +82,7 @@ const SignupForm = () => {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: 'Invalid email',
             },
-            validate: emailExists,
+            validate: emailAndUsernameExists,
           })}
         />
         {errors.email && (<p className="login__errors">{errors.email.message}</p>)}
