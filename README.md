@@ -106,7 +106,7 @@ npm install
 To run the project, execute the following command:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ## 👥 Authors <a name="authors"></a>
