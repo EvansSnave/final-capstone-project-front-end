@@ -1,0 +1,46 @@
+.doctor__cont {
+  width: 90%;
+  background: linear-gradient(#b1e7a6, #e74a4a);
+
+  @extend %flex-parent;
+
+  .doctor {
+    @extend %flex-parent;
+
+    &__control {
+      margin: 10px 0;
+
+      @extend %flex-parent;
+    }
+
+    &__title {
+      @extend %title-font;
+
+      margin: 10px 10px;
+      text-align: center;
+    }
+
+    &__input {
+      padding: 5px;
+      border: black solid 1px;
+      border-radius: 20px;
+    }
+
+    &__text {
+      resize: none;
+      padding: 5px;
+      border: black solid 1px;
+      border-radius: 20px;
+      height: 110px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__button {
+      @extend %button-out;
+    }
+  }
+}
